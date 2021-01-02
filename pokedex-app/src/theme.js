@@ -1,4 +1,4 @@
-import { extendTheme } from "@chakra-ui/react";
+import { extendTheme, theme } from "@chakra-ui/react";
 
 export default extendTheme({
   colors: {
@@ -20,5 +20,8 @@ export default extendTheme({
     steel: "#C4C2DB",
     flying: "#7AA1FF",
     dark: "#8A6653",
+  },
+  shadows: {
+    outline: "0",
   },
 });
