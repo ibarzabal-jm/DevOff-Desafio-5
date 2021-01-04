@@ -9,9 +9,12 @@ export const getPokemonByID = async (id) => {
     weight,
   } = await resp.json();
 
+  const data = await fetch(`https://pokeapi.co/api/v2/pokemon-species/${id}/`);
+  const { generation, genera, description } = await data.json();
+
   const pokemon = {
     abilities: abilitiesData.map(({ ability }) => ability.name),
-    description: null,
+    description,
     height,
     id,
     image: `https://pokeres.bastionbot.org/images/pokemon/${id}.png`,
