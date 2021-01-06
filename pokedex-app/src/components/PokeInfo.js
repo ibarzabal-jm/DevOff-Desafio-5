@@ -8,14 +8,27 @@ import {
   Text,
   Progress,
   Stack,
+  Heading,
   Box,
 } from "@chakra-ui/react";
 import { useFetchPokeInfo } from "../hooks/useFetchPokeInfo";
 
 export const PokeInfo = ({ pokemon: { types, id } }) => {
   const { data, loading } = useFetchPokeInfo(id);
+  console.log(data);
 
-  const { stats, totalStats, abilities, height, weight } = data;
+  const {
+    abilities,
+    description,
+    eggs,
+    genera,
+    gender,
+    hatch,
+    height,
+    stats,
+    totalStats,
+    weight,
+  } = data;
 
   const valueColor = (value) => {
     if (value <= 50) {
@@ -29,8 +42,6 @@ export const PokeInfo = ({ pokemon: { types, id } }) => {
     }
   };
 
-  console.log(data);
-
   return (
     <>
       {loading ? (
@@ -43,6 +54,9 @@ export const PokeInfo = ({ pokemon: { types, id } }) => {
             </Tab>
             <Tab _selected={{ color: types[0], borderBottom: "2px solid" }}>
               Base Stats
+            </Tab>
+            <Tab _selected={{ color: types[0], borderBottom: "2px solid" }}>
+              Description
             </Tab>
             <Tab _selected={{ color: types[0], borderBottom: "2px solid" }}>
               Evolution
@@ -67,7 +81,7 @@ export const PokeInfo = ({ pokemon: { types, id } }) => {
                         Species
                       </Text>
                       <Text as="td" paddingY={1} width="60%" fontWeight="bold">
-                        Hola
+                        {genera}
                       </Text>
                     </tr>
                     <tr>
@@ -81,7 +95,7 @@ export const PokeInfo = ({ pokemon: { types, id } }) => {
                         Height
                       </Text>
                       <Text as="td" paddingY={1} width="60%" fontWeight="bold">
-                        {height}
+                        {` ${height} m`}
                       </Text>
                     </tr>
                     <tr>
@@ -95,7 +109,7 @@ export const PokeInfo = ({ pokemon: { types, id } }) => {
                         weight
                       </Text>
                       <Text as="td" paddingY={1} width="60%" fontWeight="bold">
-                        {weight}
+                        {`${weight} kg`}
                       </Text>
                     </tr>
                     <tr>
@@ -116,6 +130,75 @@ export const PokeInfo = ({ pokemon: { types, id } }) => {
                         textTransform="capitalize"
                       >
                         {abilities.map((ability) => `${ability} `)}
+                      </Text>
+                    </tr>
+                  </tbody>
+                </Box>
+                <Heading size="lg">Breeding</Heading>
+                <Box as="table">
+                  <tbody>
+                    <tr>
+                      <Text
+                        as="td"
+                        color="gray.500"
+                        paddingY={1}
+                        width="40%"
+                        textTransform="capitalize"
+                      >
+                        Gender
+                      </Text>
+                      <Text
+                        as="td"
+                        paddingY={1}
+                        width="60%"
+                        fontWeight="bold"
+                        textTransform="capitalize"
+                      >
+                        {gender < 0
+                          ? "Null"
+                          : `${(gender * 100) / 8}% female, ${
+                              ((8 - gender) * 100) / 8
+                            }% male`}
+                      </Text>
+                    </tr>
+                    <tr>
+                      <Text
+                        as="td"
+                        color="gray.500"
+                        paddingY={1}
+                        width="40%"
+                        textTransform="capitalize"
+                      >
+                        Egg Groups
+                      </Text>
+                      <Text
+                        as="td"
+                        paddingY={1}
+                        width="60%"
+                        fontWeight="bold"
+                        textTransform="capitalize"
+                      >
+                        {eggs.map((egg) => `${egg} `)}
+                      </Text>
+                    </tr>
+                    <tr>
+                      <Text
+                        as="td"
+                        color="gray.500"
+                        paddingY={1}
+                        width="40%"
+                        textTransform="capitalize"
+                      >
+                        Hatch counter
+                      </Text>
+                      <Text
+                        as="td"
+                        paddingY={1}
+                        width="60%"
+                        fontWeight="bold"
+                        textTransform="capitalize"
+                      >
+                        {`${(hatch + 1) * 255} steps`}
                       </Text>
                     </tr>
                   </tbody>
@@ -144,6 +227,7 @@ export const PokeInfo = ({ pokemon: { types, id } }) => {
                           colorScheme={valueColor(value)}
                           size="xs"
                           value={value}
+                          max={200}
                         />
                       </Box>
                     </tr>
@@ -166,11 +250,37 @@ export const PokeInfo = ({ pokemon: { types, id } }) => {
                         colorScheme={totalStats >= 400 ? "green" : "red"}
                         size="xs"
                         value={totalStats}
+                        max={750}
                       />
                     </Box>
                   </tr>
                 </tbody>
               </Box>
+            </TabPanel>
+            <TabPanel>
+              <Stack spacing={3}>
+                <Box as="table">
+                  {description.map((genDesc) => (
+                    <tbody>
+                      <tr>
+                        <Text
+                          as="td"
+                          paddingY={4}
+                          align="justify"
+                          width="40%"
+                          textTransform="capitalize"
+                          fontWeight="bold"
+                        >
+                          {genDesc.version.name}
+                        </Text>
+                        <Text as="td" paddingY={4} align="justify">
+                          {genDesc.flavor_text}
+                        </Text>
+                      </tr>
+                    </tbody>
+                  ))}
+                </Box>
+              </Stack>
             </TabPanel>
           </TabPanels>
         </Tabs>
