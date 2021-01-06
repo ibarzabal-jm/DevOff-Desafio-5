@@ -6,30 +6,175 @@ import {
   TabPanel,
   TabPanels,
   Text,
+  Progress,
+  Stack,
+  Box,
 } from "@chakra-ui/react";
+import { useFetchPokeInfo } from "../hooks/useFetchPokeInfo";
 
-export const PokeInfo = ({ pokemon: { types, id, weight } }) => {
+export const PokeInfo = ({ pokemon: { types, id } }) => {
+  const { data, loading } = useFetchPokeInfo(id);
+
+  const { stats, totalStats, abilities, height, weight } = data;
+
+  const valueColor = (value) => {
+    if (value <= 50) {
+      return "red";
+    } else {
+      if (value <= 100) {
+        return "yellow";
+      } else {
+        return "green";
+      }
+    }
+  };
+
+  console.log(data);
+
   return (
-    <Tabs variant="unstyled" align="center">
-      <TabList marginBottom={3}>
-        <Tab _selected={{ color: types[0], borderBottom: "2px solid" }}>
-          About
-        </Tab>
-        <Tab _selected={{ color: types[0], borderBottom: "2px solid" }}>
-          Base Stats
-        </Tab>
-        <Tab _selected={{ color: types[0], borderBottom: "2px solid" }}>
-          Evolution
-        </Tab>
-        <Tab _selected={{ color: types[0], borderBottom: "2px solid" }}>
-          Moves
-        </Tab>
-      </TabList>
-      <TabPanels>
-        <TabPanel>
-          <Text>weight:{weight}</Text>
-        </TabPanel>
-      </TabPanels>
-    </Tabs>
+    <>
+      {loading ? (
+        "Cargando..."
+      ) : (
+        <Tabs variant="unstyled" align="center">
+          <TabList>
+            <Tab _selected={{ color: types[0], borderBottom: "2px solid" }}>
+              About
+            </Tab>
+            <Tab _selected={{ color: types[0], borderBottom: "2px solid" }}>
+              Base Stats
+            </Tab>
+            <Tab _selected={{ color: types[0], borderBottom: "2px solid" }}>
+              Evolution
+            </Tab>
+            <Tab _selected={{ color: types[0], borderBottom: "2px solid" }}>
+              Moves
+            </Tab>
+          </TabList>
+          <TabPanels align="start" paddingX={0}>
+            <TabPanel>
+              <Stack spacing={3}>
+                <Box as="table" width="100%">
+                  <tbody>
+                    <tr>
+                      <Text
+                        as="td"
+                        color="gray.500"
+                        paddingY={1}
+                        width="40%"
+                        textTransform="capitalize"
+                      >
+                        Species
+                      </Text>
+                      <Text as="td" paddingY={1} width="60%" fontWeight="bold">
+                        Hola
+                      </Text>
+                    </tr>
+                    <tr>
+                      <Text
+                        as="td"
+                        color="gray.500"
+                        paddingY={1}
+                        width="40%"
+                        textTransform="capitalize"
+                      >
+                        Height
+                      </Text>
+                      <Text as="td" paddingY={1} width="60%" fontWeight="bold">
+                        {height}
+                      </Text>
+                    </tr>
+                    <tr>
+                      <Text
+                        as="td"
+                        color="gray.500"
+                        paddingY={1}
+                        width="40%"
+                        textTransform="capitalize"
+                      >
+                        weight
+                      </Text>
+                      <Text as="td" paddingY={1} width="60%" fontWeight="bold">
+                        {weight}
+                      </Text>
+                    </tr>
+                    <tr>
+                      <Text
+                        as="td"
+                        color="gray.500"
+                        paddingY={1}
+                        width="40%"
+                        textTransform="capitalize"
+                      >
+                        abilities
+                      </Text>
+                      <Text
+                        as="td"
+                        paddingY={1}
+                        width="60%"
+                        fontWeight="bold"
+                        textTransform="capitalize"
+                      >
+                        {abilities.map((ability) => `${ability} `)}
+                      </Text>
+                    </tr>
+                  </tbody>
+                </Box>
+              </Stack>
+            </TabPanel>
+            <TabPanel paddingX={0}>
+              <Box as="table" width="100%">
+                <tbody>
+                  {Object.entries(stats).map(([title, value]) => (
+                    <tr key={title}>
+                      <Text
+                        as="td"
+                        color="gray.500"
+                        paddingY={1}
+                        width="40%"
+                        textTransform="capitalize"
+                      >
+                        {title}
+                      </Text>
+                      <Text as="td" paddingY={1} width="15%">
+                        {value}
+                      </Text>
+                      <Box as="td" paddingY={1} width="45%">
+                        <Progress
+                          colorScheme={valueColor(value)}
+                          size="xs"
+                          value={value}
+                        />
+                      </Box>
+                    </tr>
+                  ))}
+                  <tr>
+                    <Text
+                      as="td"
+                      color="gray.500"
+                      paddingY={1}
+                      width="40%"
+                      textTransform="capitalize"
+                    >
+                      Total
+                    </Text>
+                    <Text as="td" paddingY={1} width="15%">
+                      {totalStats}
+                    </Text>
+                    <Box as="td" paddingY={1} width="45%">
+                      <Progress
+                        colorScheme={totalStats >= 400 ? "green" : "red"}
+                        size="xs"
+                        value={totalStats}
+                      />
+                    </Box>
+                  </tr>
+                </tbody>
+              </Box>
+            </TabPanel>
+          </TabPanels>
+        </Tabs>
+      )}
+    </>
   );
 };
