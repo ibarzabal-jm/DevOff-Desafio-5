@@ -11,7 +11,7 @@ const getFirstData = async (id) => {
 
   return {
     abilities: abilitiesData.map(({ ability }) => ability.name),
-    height,
+    height: height / 10,
     id,
     image: `https://pokeres.bastionbot.org/images/pokemon/${id}.png`,
     name,
@@ -21,18 +21,35 @@ const getFirstData = async (id) => {
     ),
     totalStats: statsData.reduce((sum, value) => sum + value.base_stat, 0),
     types: typesData.map(({ type }) => type.name),
-    weight,
+    weight: weight / 10,
   };
 };
 
 const getSecondData = async (id) => {
   const resp = await fetch(`https://pokeapi.co/api/v2/pokemon-species/${id}/`);
-  const { generation, genera, description } = await resp.json();
+  const {
+    egg_groups: eggsData,
+    gender_rate: gender,
+    genera,
+    generation,
+    flavor_text_entries: description,
+    hatch_counter: hatch,
+  } = await resp.json();
 
   return {
-    generation,
-    genera,
-    description,
+    eggs: eggsData.map((egg) => egg.name),
+    gen: generation.name,
+    gender,
+    genera: genera.find((genus) => genus.language.name === "en").genus,
+    description: description.filter(
+      (desc) =>
+        (desc.language.name === "en" && desc.version.name === "heartgold") ||
+        (desc.language.name === "en" && desc.version.name === "firered") ||
+        (desc.language.name === "en" &&
+          desc.version.name === "lets-go-pikachu") ||
+        (desc.language.name === "en" && desc.version.name === "sword")
+    ),
+    hatch,
   };
 };
 
