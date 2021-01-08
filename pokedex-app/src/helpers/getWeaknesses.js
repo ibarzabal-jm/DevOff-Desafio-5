@@ -25,7 +25,17 @@ export const getWeaknesses = (types) => {
   }
 
   delete weaknesses.id;
-  return {
-    ...weaknesses,
-  };
+
+  return weaknesses;
 };
+
+/* 
+
+ //Debería retornar//
+  weaknesses = {
+    fire: 1,
+    water:2,
+    fliyng :4,
+    electric: 0,
+  }
+*/
