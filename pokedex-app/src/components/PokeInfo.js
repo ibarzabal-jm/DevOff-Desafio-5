@@ -12,15 +12,20 @@ import {
   Box,
 } from "@chakra-ui/react";
 import { useFetchPokeInfo } from "../hooks/useFetchPokeInfo";
+import { getWeaknesses } from "../helpers/getWeaknesses";
 
 export const PokeInfo = ({ pokemon: { types, id } }) => {
   const { data, loading } = useFetchPokeInfo(id);
+
   console.log(data);
+
+  console.log(getWeaknesses(types));
 
   const {
     abilities,
     description,
     eggs,
+    gen,
     genera,
     gender,
     hatch,
@@ -130,6 +135,26 @@ export const PokeInfo = ({ pokemon: { types, id } }) => {
                         textTransform="capitalize"
                       >
                         {abilities.map((ability) => `${ability} `)}
+                      </Text>
+                    </tr>
+                    <tr>
+                      <Text
+                        as="td"
+                        color="gray.500"
+                        paddingY={1}
+                        width="40%"
+                        textTransform="capitalize"
+                      >
+                        first appearance
+                      </Text>
+                      <Text
+                        as="td"
+                        paddingY={1}
+                        width="60%"
+                        fontWeight="bold"
+                        textTransform="capitalize"
+                      >
+                        {gen}
                       </Text>
                     </tr>
                   </tbody>
@@ -260,9 +285,9 @@ export const PokeInfo = ({ pokemon: { types, id } }) => {
             <TabPanel>
               <Stack spacing={3}>
                 <Box as="table">
-                  {description.map((genDesc) => (
-                    <tbody>
-                      <tr>
+                  <tbody>
+                    {description.map((genDesc, index) => (
+                      <tr key={index}>
                         <Text
                           as="td"
                           paddingY={4}
@@ -277,8 +302,8 @@ export const PokeInfo = ({ pokemon: { types, id } }) => {
                           {genDesc.flavor_text}
                         </Text>
                       </tr>
-                    </tbody>
-                  ))}
+                    ))}
+                  </tbody>
                 </Box>
               </Stack>
             </TabPanel>
