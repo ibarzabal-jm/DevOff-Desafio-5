@@ -45,8 +45,6 @@ const getSecondData = async (id) => {
       (desc) =>
         (desc.language.name === "en" && desc.version.name === "heartgold") ||
         (desc.language.name === "en" && desc.version.name === "firered") ||
-        (desc.language.name === "en" &&
-          desc.version.name === "lets-go-pikachu") ||
         (desc.language.name === "en" && desc.version.name === "sword")
     ),
     hatch,
