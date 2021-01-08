@@ -3,11 +3,13 @@ const data = [
     id: "fire",
     fire: 1,
     water: 2,
+    electric: 0,
   },
   {
     id: "flying",
     fire: 3,
     water: 4,
+    electric: 2,
   },
 ];
 
@@ -33,9 +35,8 @@ export const getWeaknesses = (types) => {
 
  //Debería retornar//
   weaknesses = {
-    fire: 1,
-    water:2,
-    fliyng :4,
+    fire: 3,
+    water: 8,
     electric: 0,
   }
 */
