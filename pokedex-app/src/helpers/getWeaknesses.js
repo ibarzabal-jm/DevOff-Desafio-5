@@ -43,6 +43,7 @@ const data = [
   },
 ];
 
+// Mando tipo: [fire, flying]
 export const getWeaknesses = (types) => {
   let weaknesses = {};
   let firstWeak = data.find((type) => type.id === types[0]);
@@ -61,12 +62,24 @@ export const getWeaknesses = (types) => {
   return weaknesses;
 };
 
-/* 
-
- //Debería retornar//
-  weaknesses = {
-    fire: 3,
-    water: 8,
-    electric: 0,
-  }
-*/
+//Debería retornar//
+// weaknesses = {
+//   bug: 0.25,
+//   dark: 1,
+//   dragon: 1,
+//   electric: 2,
+//   fairy: 0.5,
+//   fighting: 0.5,
+//   fire: 0.5,
+//   flying: 1,
+//   ghost: 1,
+//   grass: 0.25,
+//   ground: 0,
+//   ice: 1,
+//   normal: 1,
+//   poison: 1,
+//   psychic: 1,
+//   rock: 4,
+//   steel: 0.5,
+//   water: 2
+// }
