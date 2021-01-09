@@ -43,7 +43,7 @@ const data = [
   },
 ];
 
-// Mando tipo: [fire, flying]
+// Recibo types: [fire, flying] || types = [fire] || types = [flying]
 export const getWeaknesses = (types) => {
   let weaknesses = {};
   let firstWeak = data.find((type) => type.id === types[0]);
@@ -63,6 +63,7 @@ export const getWeaknesses = (types) => {
 };
 
 //Debería retornar//
+// Caso [fire, flying]
 // weaknesses = {
 //   bug: 0.25,
 //   dark: 1,
