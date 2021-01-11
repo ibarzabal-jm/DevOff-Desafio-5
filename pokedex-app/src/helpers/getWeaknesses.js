@@ -1,43 +1,39 @@
-const dataWeaknesses = [
-  {
-    id: "fire",
+const data = {
+  fire: {
     bug: 0.5,
     electric: 1,
     water: 2,
   },
-  {
-    id: "flying",
+  flying: {
     bug: 0.5,
     electric: 2,
     water: 1,
   },
-];
-
-// Recibo types = [fire, flying] || types = [fire] || types = [flying]
-export const getWeaknesses = (types) => {
-  let weaknesses = {};
-  let firstWeak = dataWeaknesses.find((type) => type.id === types[0]);
-
-  if (types.length === 1) {
-    weaknesses = firstWeak;
-  } else {
-    let secondWeak = dataWeaknesses.find((type) => type.id === types[1]);
-
-    //calculando la combinacion de ambos tipos
-    Object.keys(firstWeak).forEach((type) => {
-      weaknesses[type] = firstWeak[type] * secondWeak[type];
-    });
-  }
-
-  delete weaknesses.id;
-
-  return weaknesses;
+  water: {
+    bug: 0.5,
+    electric: 2,
+    water: 0.5,
+  },
 };
 
-//Debería retornar//
-// Caso [fire, flying]
-// weaknesses = {
-//   bug: 0.25,
-//   electric: 2,
-//   water: 2
-// }
+// Recibo types = [fire, flying] || types = [fire] || types = [flying] || types = [water] || types = [water, fire] etc
+export const getWeaknesses = (types) => {
+  let weaknesses = {};
+
+  if (types.length === 1) {
+    weaknesses = data[types];
+  } else {
+    weaknesses = types.reduce((combination, type) => {
+      for (const [typeName, number] of Object.entries(data[type])) {
+        if (!combination[typeName]) {
+          combination[typeName] = 1;
+        }
+        combination[typeName] *= number;
+      }
+
+      return combination;
+    }, {});
+  }
+
+  console.log(weaknesses);
+};
