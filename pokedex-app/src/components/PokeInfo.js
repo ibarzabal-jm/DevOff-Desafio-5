@@ -17,9 +17,7 @@ import { getWeaknesses } from "../helpers/getWeaknesses";
 export const PokeInfo = ({ pokemon: { types, id } }) => {
   const { data, loading } = useFetchPokeInfo(id);
 
-  console.log(data);
-
-  console.log(getWeaknesses(types));
+  getWeaknesses(types);
 
   const {
     abilities,
