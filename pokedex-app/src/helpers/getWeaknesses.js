@@ -1,22 +1,5 @@
-const data = {
-  fire: {
-    bug: 0.5,
-    electric: 1,
-    water: 2,
-  },
-  flying: {
-    bug: 0.5,
-    electric: 2,
-    water: 1,
-  },
-  water: {
-    bug: 0.5,
-    electric: 2,
-    water: 0.5,
-  },
-};
+import { dataTypeWeaknesses as data } from "../data/dataTypeWeaknesses";
 
-// Recibo types = [fire, flying] || types = [fire] || types = [flying] || types = [water] || types = [water, fire] etc
 export const getWeaknesses = (types) => {
   let weaknesses = {};
 
@@ -35,5 +18,22 @@ export const getWeaknesses = (types) => {
     }, {});
   }
 
-  console.log(weaknesses);
+  //  Recibo
+  // weaknesses = {
+  //   bug: 1,
+  //   dragon: 1,
+  //   fire: 2,
+  //   water: 3,
+  // };
+
+  const invertido = Object.entries(weaknesses).reduce((acc, [key, value]) => {
+    if (acc[value]) {
+      acc[value].push(key);
+      return acc;
+    } else {
+      return { ...acc, [value]: [].concat(key) };
+    }
+  }, {});
+
+  return invertido;
 };

@@ -1,6 +1,5 @@
-export const dataTypeWeaknesses = [
-  {
-    id: "bug",
+export const dataTypeWeaknesses = {
+  bug: {
     bug: 1,
     dark: 1,
     dragon: 1,
@@ -20,8 +19,7 @@ export const dataTypeWeaknesses = [
     steel: 1,
     water: 1,
   },
-  {
-    id: "dark",
+  dark: {
     bug: 2,
     dark: 0.5,
     dragon: 1,
@@ -41,8 +39,7 @@ export const dataTypeWeaknesses = [
     steel: 1,
     water: 1,
   },
-  {
-    id: "dragon",
+  dragon: {
     bug: 1,
     dark: 1,
     dragon: 2,
@@ -62,8 +59,7 @@ export const dataTypeWeaknesses = [
     steel: 1,
     water: 0.5,
   },
-  {
-    id: "electric",
+  electric: {
     bug: 1,
     dark: 1,
     dragon: 1,
@@ -83,8 +79,7 @@ export const dataTypeWeaknesses = [
     steel: 0.5,
     water: 1,
   },
-  {
-    id: "fairy",
+  fairy: {
     bug: 0.5,
     dark: 0.5,
     dragon: 0,
@@ -104,8 +99,7 @@ export const dataTypeWeaknesses = [
     steel: 2,
     water: 1,
   },
-  {
-    id: "fighting",
+  fighting: {
     bug: 0.5,
     dark: 0.5,
     dragon: 1,
@@ -125,8 +119,7 @@ export const dataTypeWeaknesses = [
     steel: 1,
     water: 1,
   },
-  {
-    id: "fire",
+  fire: {
     bug: 0.5,
     dark: 1,
     dragon: 1,
@@ -146,8 +139,7 @@ export const dataTypeWeaknesses = [
     steel: 0.5,
     water: 2,
   },
-  {
-    id: "flying",
+  flying: {
     bug: 0.5,
     dark: 1,
     dragon: 1,
@@ -167,8 +159,7 @@ export const dataTypeWeaknesses = [
     steel: 1,
     water: 1,
   },
-  {
-    id: "ghost",
+  ghost: {
     bug: 0.5,
     dark: 2,
     dragon: 1,
@@ -188,8 +179,7 @@ export const dataTypeWeaknesses = [
     steel: 1,
     water: 1,
   },
-  {
-    id: "grass",
+  grass: {
     bug: 2,
     dark: 1,
     dragon: 1,
@@ -209,8 +199,7 @@ export const dataTypeWeaknesses = [
     steel: 1,
     water: 0.5,
   },
-  {
-    id: "ground",
+  ground: {
     bug: 1,
     dark: 1,
     dragon: 1,
@@ -230,8 +219,7 @@ export const dataTypeWeaknesses = [
     steel: 1,
     water: 2,
   },
-  {
-    id: "ice",
+  ice: {
     bug: 1,
     dark: 1,
     dragon: 1,
@@ -251,8 +239,7 @@ export const dataTypeWeaknesses = [
     steel: 2,
     water: 1,
   },
-  {
-    id: "normal",
+  normal: {
     bug: 1,
     dark: 1,
     dragon: 1,
@@ -272,8 +259,7 @@ export const dataTypeWeaknesses = [
     steel: 1,
     water: 1,
   },
-  {
-    id: "poison",
+  poison: {
     bug: 0.5,
     dark: 1,
     dragon: 1,
@@ -293,8 +279,7 @@ export const dataTypeWeaknesses = [
     steel: 1,
     water: 1,
   },
-  {
-    id: "psychic",
+  psychic: {
     bug: 2,
     dark: 2,
     dragon: 1,
@@ -314,8 +299,7 @@ export const dataTypeWeaknesses = [
     steel: 1,
     water: 1,
   },
-  {
-    id: "rock",
+  rock: {
     bug: 1,
     dark: 1,
     dragon: 1,
@@ -335,8 +319,7 @@ export const dataTypeWeaknesses = [
     steel: 2,
     water: 2,
   },
-  {
-    id: "steel",
+  steel: {
     bug: 0.5,
     dark: 1,
     dragon: 0.5,
@@ -356,8 +339,7 @@ export const dataTypeWeaknesses = [
     steel: 0.5,
     water: 1,
   },
-  {
-    id: "water",
+  water: {
     bug: 1,
     dark: 1,
     dragon: 1,
@@ -377,4 +359,4 @@ export const dataTypeWeaknesses = [
     steel: 0.5,
     water: 0.5,
   },
-];
+};

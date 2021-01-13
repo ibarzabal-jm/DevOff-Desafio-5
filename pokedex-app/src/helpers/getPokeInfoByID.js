@@ -1,3 +1,5 @@
+import { getWeaknesses } from "./getWeaknesses";
+
 const getFirstData = async (id) => {
   const resp = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`);
   const {
@@ -5,9 +7,11 @@ const getFirstData = async (id) => {
     height,
     name,
     stats: statsData,
-    types: typesData,
+    types,
     weight,
   } = await resp.json();
+
+  const typesData = types.map(({ type }) => type.name);
 
   return {
     abilities: abilitiesData.map(({ ability }) => ability.name),
@@ -20,7 +24,8 @@ const getFirstData = async (id) => {
       {}
     ),
     totalStats: statsData.reduce((sum, value) => sum + value.base_stat, 0),
-    types: typesData.map(({ type }) => type.name),
+    types: typesData,
+    weaknesses: getWeaknesses(typesData),
     weight: weight / 10,
   };
 };

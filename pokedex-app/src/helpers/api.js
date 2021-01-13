@@ -1,6 +1,6 @@
 import { getMiniDataPokemon } from "./getMiniDataPokemon";
 
-const PAGE_SIZE = 9;
+const PAGE_SIZE = 555;
 
 export default {
   list: (page) => {
@@ -12,5 +12,4 @@ export default {
         .map((id) => getMiniDataPokemon(id))
     );
   },
-  
 };
