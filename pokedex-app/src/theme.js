@@ -20,6 +20,9 @@ export default extendTheme({
     steel: "#C4C2DB",
     flying: "#7AA1FF",
     dark: "#8A6653",
+
+    primary: "#ff0050",
+    secondary: "#2667ff",
   },
   shadows: {
     outline: "0",
