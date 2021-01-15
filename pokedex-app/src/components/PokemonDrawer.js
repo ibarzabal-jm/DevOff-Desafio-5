@@ -10,7 +10,6 @@ import {
 } from "@chakra-ui/react";
 import { ArrowBackIcon, StarIcon } from "@chakra-ui/icons";
 import { PokeInfo } from "./PokeInfo";
-import pokeball from "./pokeball.png";
 
 const PokemonDrawer = ({ onClose, pokemon }) => {
   return (
