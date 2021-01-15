@@ -23,11 +23,13 @@ const BaseStats = ({ stats, weaknesses, totalStats }) => {
       case "2":
         return "Weak x2";
       case "0.5":
-        return "Not  Effective x1/2";
+        return "Not Effective x1/2";
       case "0.25":
-        return "Not Effective x1/4";
+        return "Strong Against x1/4";
       case "0":
-        return "No Effect x0";
+        return "Immune x0 ";
+      default:
+        return "Error";
     }
   };
 
