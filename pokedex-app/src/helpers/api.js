@@ -1,15 +1,15 @@
 import { getMiniDataPokemon } from "./getMiniDataPokemon";
 
-const PAGE_SIZE = 555;
+const PAGE_SIZE = 10;
 
 export default {
   list: (page) => {
     return Promise.all(
-      new Array(page * PAGE_SIZE + 1)
+      new Array(PAGE_SIZE + 1)
         .fill(true)
         .map((_, index) => index)
         .slice(1)
-        .map((id) => getMiniDataPokemon(id))
+        .map((id) => getMiniDataPokemon(PAGE_SIZE * page + id))
     );
   },
 };
