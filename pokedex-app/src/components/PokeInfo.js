@@ -1,11 +1,19 @@
 import React from "react";
-import { TabList, Tabs, Tab, TabPanel, TabPanels } from "@chakra-ui/react";
+import {
+  TabList,
+  Tabs,
+  Tab,
+  TabPanel,
+  TabPanels,
+  Text,
+} from "@chakra-ui/react";
 
 import { useFetchPokeInfo } from "../hooks/useFetchPokeInfo";
 
 import About from "./PokeInfoPanels/About";
 import BaseStats from "./PokeInfoPanels/BaseStats";
 import Description from "./PokeInfoPanels/Description";
+import Moves from "./PokeInfoPanels/Moves";
 
 export const PokeInfo = ({ pokemon: { types, id } }) => {
   const { data, loading } = useFetchPokeInfo(id);
@@ -56,6 +64,12 @@ export const PokeInfo = ({ pokemon: { types, id } }) => {
             </TabPanel>
             <TabPanel>
               <Description description={data.description} />
+            </TabPanel>
+            <TabPanel>
+              <Text>Evoluciones</Text>
+            </TabPanel>
+            <TabPanel>
+              <Moves moves={data.moves} />
             </TabPanel>
           </TabPanels>
         </Tabs>
