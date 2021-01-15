@@ -32,7 +32,7 @@ const PokemonThumbnail = ({ pokemon, onClick }) => {
             </Text>
           ))}
         </Stack>
-        <Image maxWidth="100px" width={16} src={pokemon.image}></Image>
+        <Image maxWidth="100px" width={20} src={pokemon.image}></Image>
       </Stack>
     </Stack>
   );
