@@ -4,9 +4,10 @@ import {
   Flex,
   Text,
   Badge,
-  SimpleGrid,
   Grid,
   GridItem,
+  SimpleGrid,
+  Heading,
 } from "@chakra-ui/react";
 import { getWeaknesses } from "../../helpers/getWeaknesses";
 
@@ -42,7 +43,8 @@ const ResultsCombination = ({ firstType, secondType }) => {
   };
 
   return (
-    <Stack>
+    <Stack height="100%" spacing={10} border="1px solid">
+      <Heading textAlign="center">Results Combination:</Heading>
       <Stack isInline justify="center" alignItems="baseline">
         <Flex
           align="center"
@@ -78,29 +80,26 @@ const ResultsCombination = ({ firstType, secondType }) => {
           </>
         )}
       </Stack>
-      <Stack justify="center" alignItems="center">
+      <Stack spacing={4} marginY={2} border="1px solid">
         {values.map(
           (value) =>
             combination[value] && (
-              <Stack key={value}>
+              <Stack key={value} marginY={3}>
                 <Text textAlign="center" fontWeight="bold">
                   {renderWeaks(value)}
                 </Text>
-                <Grid templateColumns="repeat(3, 1fr)" gap={3}>
+                <SimpleGrid columns={3} gap={3} marginY={2}>
                   {combination[value].map((type) => (
-                    <GridItem>
-                      <Badge
-                        rounded={999}
-                        width={20}
-                        textAlign="center"
-                        key={type}
-                        bg={type}
-                      >
-                        <Text>{type}</Text>
-                      </Badge>
-                    </GridItem>
+                    <Badge
+                      rounded={999}
+                      textAlign="center"
+                      key={type}
+                      bg={type}
+                    >
+                      <Text>{type}</Text>
+                    </Badge>
                   ))}
-                </Grid>
+                </SimpleGrid>
               </Stack>
             )
         )}
