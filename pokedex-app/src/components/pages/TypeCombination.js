@@ -1,12 +1,12 @@
 import React from "react";
-import CombinationContent from "../Combination/CombinationContent";
 import Header from "../Combination/Header";
+import CombinationContainer from "../Combination/CombinationContainer";
 
 const TypeCombination = () => {
   return (
     <div>
       <Header />
-      <CombinationContent />
+      <CombinationContainer />
     </div>
   );
 };
