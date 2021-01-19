@@ -43,7 +43,7 @@ const ResultsCombination = ({ firstType, secondType }) => {
   };
 
   return (
-    <Stack height="100%" spacing={10} border="1px solid">
+    <Stack height="100%" spacing={10}>
       <Heading textAlign="center">Results Combination:</Heading>
       <Stack isInline justify="center" alignItems="baseline">
         <Flex
@@ -80,26 +80,39 @@ const ResultsCombination = ({ firstType, secondType }) => {
           </>
         )}
       </Stack>
-      <Stack spacing={4} marginY={2} border="1px solid">
+      <Stack spacing={4} marginY={2}>
         {values.map(
           (value) =>
             combination[value] && (
-              <Stack key={value} marginY={3}>
+              <Stack
+                key={value}
+                marginY={3}
+                justifyItems="center"
+                alignItems="center"
+              >
                 <Text textAlign="center" fontWeight="bold">
                   {renderWeaks(value)}
                 </Text>
-                <SimpleGrid columns={3} gap={3} marginY={2}>
+                <Grid
+                  templateColumns=" repeat(3, 1fr)"
+                  marginY={2}
+                  gap={3}
+                  bg="red.200"
+                >
                   {combination[value].map((type) => (
-                    <Badge
-                      rounded={999}
-                      textAlign="center"
-                      key={type}
-                      bg={type}
-                    >
-                      <Text>{type}</Text>
-                    </Badge>
+                    <GridItem w="100px" alignSelf="center">
+                      <Badge
+                        rounded={999}
+                        w="100px"
+                        textAlign="center"
+                        key={type}
+                        bg={type}
+                      >
+                        <Text>{type}</Text>
+                      </Badge>
+                    </GridItem>
                   ))}
-                </SimpleGrid>
+                </Grid>
               </Stack>
             )
         )}
