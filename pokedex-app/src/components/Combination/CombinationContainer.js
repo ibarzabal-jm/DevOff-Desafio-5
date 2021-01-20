@@ -1,15 +1,5 @@
 import React, { useState } from "react";
-import {
-  Box,
-  color,
-  Flex,
-  Grid,
-  SimpleGrid,
-  Stack,
-  Text,
-  Heading,
-  Badge,
-} from "@chakra-ui/react";
+import { Box, Flex, Stack,  Heading, Badge } from "@chakra-ui/react";
 import ResultsCombination from "./ResultsCombination";
 
 const CombinationContainer = () => {
@@ -52,17 +42,19 @@ const CombinationContainer = () => {
         wrap="wrap"
       >
         <Stack w={{ base: "100%", md: "50%" }} spacing={10}>
-          <Stack paddingX={2} spacing={3}>
+          <Stack paddingX={2} spacing={3} alignItems="center">
             <Heading textAlign="center">Choose 1° Type</Heading>
-            <SimpleGrid columns={3} gap={3}>
+            <Flex direction="row" w="400px" wrap="wrap" justifyContent="center">
               {types.map((type) => (
                 <Badge
                   bg={type}
                   cursor="pointer"
-                  fontSize="0.8em"
                   key={type}
+                  margin="8px"
                   rounded={999}
                   textAlign="center"
+                  maxW="100px"
+                  w="33%"
                   onClick={() =>
                     type !== secondType
                       ? setFirstType(type)
@@ -72,19 +64,21 @@ const CombinationContainer = () => {
                   {type}
                 </Badge>
               ))}
-            </SimpleGrid>
+            </Flex>
           </Stack>
-          <Stack paddingX={2} spacing={3}>
+          <Stack paddingX={2} spacing={3} alignItems="center">
             <Heading textAlign="center">Choose 2° Type</Heading>
-            <SimpleGrid columns={3} gap={3}>
+            <Flex direction="row" w="400px" wrap="wrap" justifyContent="center">
               {types.map((type) => (
                 <Badge
                   bg={type}
                   cursor="pointer"
-                  fontSize="0.8em"
                   key={type}
+                  margin="8px"
                   rounded={999}
                   textAlign="center"
+                  maxW="100px"
+                  w="33%"
                   onClick={() =>
                     type !== firstType
                       ? setSecondType(type)
@@ -100,18 +94,28 @@ const CombinationContainer = () => {
                 cursor="pointer"
                 fontSize="0.8em"
                 rounded={999}
+                maxW="100px"
+                w="33%"
                 textAlign="center"
                 textTransform="capitalize"
                 onClick={() => setSecondType(null)}
               >
                 NONE
               </Badge>
-            </SimpleGrid>
+            </Flex>
           </Stack>
         </Stack>
-        <Stack w={{ base: "100%", md: "50%" }}>
-          <ResultsCombination firstType={firstType} secondType={secondType} />
-        </Stack>
+
+        <Box
+          marginTop={{ base: "4rem", md: "0px" }}
+          w={{ base: "100%", md: "50%" }}
+        >
+          <ResultsCombination
+            w={{ base: "100%", md: "50%" }}
+            firstType={firstType}
+            secondType={secondType}
+          />
+        </Box>
       </Flex>
     </Flex>
   );
