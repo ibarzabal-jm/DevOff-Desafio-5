@@ -1,12 +1,5 @@
 import React from "react";
-import {
-  TabList,
-  Tabs,
-  Tab,
-  TabPanel,
-  TabPanels,
-  Text,
-} from "@chakra-ui/react";
+import { TabList, Tabs, Tab, TabPanel, TabPanels } from "@chakra-ui/react";
 
 import { useFetchPokeInfo } from "../hooks/useFetchPokeInfo";
 
@@ -34,9 +27,7 @@ export const PokeInfo = ({ pokemon: { types, id } }) => {
             <Tab _selected={{ color: types[0], borderBottom: "2px solid" }}>
               Description
             </Tab>
-            <Tab _selected={{ color: types[0], borderBottom: "2px solid" }}>
-              Evolution
-            </Tab>
+
             <Tab _selected={{ color: types[0], borderBottom: "2px solid" }}>
               Moves
             </Tab>
@@ -65,9 +56,7 @@ export const PokeInfo = ({ pokemon: { types, id } }) => {
             <TabPanel>
               <Description description={data.description} />
             </TabPanel>
-            <TabPanel>
-              <Text>Evoluciones</Text>
-            </TabPanel>
+
             <TabPanel>
               <Moves moves={data.moves} />
             </TabPanel>
