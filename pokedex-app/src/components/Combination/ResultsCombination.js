@@ -1,14 +1,5 @@
 import React, { useEffect, useState } from "react";
-import {
-  Stack,
-  Flex,
-  Text,
-  Badge,
-  Grid,
-  GridItem,
-  SimpleGrid,
-  Heading,
-} from "@chakra-ui/react";
+import { Stack, Flex, Text, Badge, Heading } from "@chakra-ui/react";
 import { getWeaknesses } from "../../helpers/getWeaknesses";
 
 const ResultsCombination = ({ firstType, secondType }) => {
@@ -43,7 +34,7 @@ const ResultsCombination = ({ firstType, secondType }) => {
   };
 
   return (
-    <Stack height="100%" spacing={10}>
+    <Stack spacing={10}>
       <Heading textAlign="center">Results Combination:</Heading>
       <Stack isInline justify="center" alignItems="baseline">
         <Flex
@@ -93,26 +84,26 @@ const ResultsCombination = ({ firstType, secondType }) => {
                 <Text textAlign="center" fontWeight="bold">
                   {renderWeaks(value)}
                 </Text>
-                <Grid
-                  templateColumns=" repeat(3, 1fr)"
-                  marginY={2}
-                  gap={3}
-                  bg="red.200"
+                <Flex
+                  direction="row"
+                  w="400px"
+                  wrap="wrap"
+                  justifyContent="center"
                 >
                   {combination[value].map((type) => (
-                    <GridItem w="100px" alignSelf="center">
-                      <Badge
-                        rounded={999}
-                        w="100px"
-                        textAlign="center"
-                        key={type}
-                        bg={type}
-                      >
-                        <Text>{type}</Text>
-                      </Badge>
-                    </GridItem>
+                    <Badge
+                      rounded={999}
+                      maxW="100px"
+                      w="33%"
+                      margin="8px"
+                      textAlign="center"
+                      key={type}
+                      bg={type}
+                    >
+                      <Text>{type}</Text>
+                    </Badge>
                   ))}
-                </Grid>
+                </Flex>
               </Stack>
             )
         )}
