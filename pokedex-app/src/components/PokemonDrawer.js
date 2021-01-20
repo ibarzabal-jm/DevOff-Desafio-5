@@ -49,6 +49,7 @@ const PokemonDrawer = ({ onClose, pokemon }) => {
                     </Text>
                   ))}
                 </Stack>
+
                 <Image
                   alignSelf="center"
                   height={256}
@@ -56,7 +57,7 @@ const PokemonDrawer = ({ onClose, pokemon }) => {
                   maxWidth={256}
                   src={pokemon.image}
                   width="100%"
-                  zIndex={9}
+                  zIndex={20}
                   className="animate__animated animate__shakeX"
                 />
               </Stack>
@@ -68,6 +69,7 @@ const PokemonDrawer = ({ onClose, pokemon }) => {
             marginTop={-16}
             padding={6}
             paddingTop={12}
+            zIndex={10}
           >
             <PokeInfo pokemon={pokemon} />
           </Stack>
