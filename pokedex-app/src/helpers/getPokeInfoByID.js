@@ -2,7 +2,7 @@ import { getWeaknesses } from "./getWeaknesses";
 
 const moveFetch = async (url) => {
   const resp = await fetch(url);
-  const { accuracy, damage_class, name, pp, power, type } = await resp.json();
+  const { accuracy, damage_class, name, power, type } = await resp.json();
   const dataType = type.name;
   const dataClass = damage_class.name;
   return {
@@ -37,8 +37,6 @@ const getFirstData = async (id) => {
   const movesData = await Promise.all(
     movesFilter.map(({ move }) => moveFetch(move.url))
   );
-
-  console.log(movesData);
 
   return {
     abilities: abilitiesData.map(({ ability }) => ability.name),
@@ -77,6 +75,7 @@ const getSecondData = async (id) => {
     description: description.filter(
       (desc) =>
         (desc.language.name === "en" && desc.version.name === "heartgold") ||
+        (desc.language.name === "en" && desc.version.name === "emerald") ||
         (desc.language.name === "en" && desc.version.name === "firered") ||
         (desc.language.name === "en" && desc.version.name === "sword")
     ),
