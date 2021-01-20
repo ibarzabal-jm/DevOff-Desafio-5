@@ -1,17 +1,17 @@
 import React from "react";
-import { Text, Stack, Box } from "@chakra-ui/react";
+import { Text, Stack, Table, Tbody, Tr } from "@chakra-ui/react";
 
 const Description = ({ description }) => {
   return (
     <Stack>
-      <Box as="table">
-        <tbody>
+      <Table variant="striped" colorScheme="gray" width="100%">
+        <Tbody>
           {description.map((genDesc, index) => (
-            <tr key={index}>
+            <Tr key={index}>
               <Text
                 as="td"
                 paddingY={4}
-                align="justify"
+                align="center"
                 width="40%"
                 textTransform="capitalize"
                 fontWeight="bold"
@@ -21,10 +21,10 @@ const Description = ({ description }) => {
               <Text as="td" paddingY={4} align="justify">
                 {genDesc.flavor_text}
               </Text>
-            </tr>
+            </Tr>
           ))}
-        </tbody>
-      </Box>
+        </Tbody>
+      </Table>
     </Stack>
   );
 };
