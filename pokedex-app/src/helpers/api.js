@@ -1,4 +1,5 @@
 import { getMiniDataPokemon } from "./getMiniDataPokemon";
+import { getPokeInfoByID } from "./getPokeInfoByID";
 
 const PAGE_SIZE = 10;
 
@@ -11,5 +12,11 @@ export default {
         .slice(1)
         .map((id) => getMiniDataPokemon(PAGE_SIZE * page + id))
     );
+  },
+  miniData: (id) => {
+    return getMiniDataPokemon(id);
+  },
+  fullData: (id) => {
+    return getPokeInfoByID(id);
   },
 };
