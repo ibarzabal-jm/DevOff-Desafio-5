@@ -4,10 +4,10 @@ import CombinationContainer from "../Combination/CombinationContainer";
 
 const TypeCombinationPage = () => {
   return (
-    <div>
+    <>
       <Header />
       <CombinationContainer />
-    </div>
+    </>
   );
 };
 
