@@ -2,7 +2,7 @@ import React from "react";
 import Header from "../Combination/Header";
 import CombinationContainer from "../Combination/CombinationContainer";
 
-const TypeCombination = () => {
+const TypeCombinationPage = () => {
   return (
     <div>
       <Header />
@@ -11,4 +11,4 @@ const TypeCombination = () => {
   );
 };
 
-export default TypeCombination;
+export default TypeCombinationPage;
