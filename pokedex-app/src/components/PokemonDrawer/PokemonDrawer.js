@@ -23,7 +23,7 @@ const PokemonDrawer = ({ onClose, pokemon }) => {
             spacing={6}
           >
             <Stack direction="row" fontSize="2xl" justify="space-between">
-              <ArrowBackIcon onClick={onClose} />
+              <ArrowBackIcon onClick={onClose} cursor="pointer" />
               <StarIcon />
             </Stack>
             <Stack direction="row" color="white">
