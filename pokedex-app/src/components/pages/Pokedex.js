@@ -26,7 +26,7 @@ const Pokedex = () => {
   const { pokemons, loading } = useFetchPokedex(page);
 
   return (
-    <Stack padding={5} bg="gray.200" rounded={20}>
+    <Stack padding={5} bg="gray.200" rounded={20} margin={10}>
       <Heading fontSize="4xl" alignSelf="flex-start">
         Pokedex
       </Heading>
