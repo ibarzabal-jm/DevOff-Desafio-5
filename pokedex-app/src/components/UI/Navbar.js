@@ -5,10 +5,11 @@ import { Link as ReachLink } from "react-router-dom";
 const Navbar = () => {
   return (
     <Stack
+      as="nav"
       isInline
       alignItems="center"
       height={12}
-      justifyContent="space-between"
+      justifyContent={{ base: "center", md: "space-between" }}
       bg="black"
     >
       <Stack isInline>
@@ -16,7 +17,8 @@ const Navbar = () => {
           PokedexApp
         </Button>
       </Stack>
-      <Stack isInline mr={2}>
+
+      <Stack isInline spacing={2} mr={2} display={{ base: "none", md: "flex" }}>
         <Button
           size="sm"
           color="white"
