@@ -3,8 +3,8 @@ import { Heading, Stack, Text } from "@chakra-ui/react";
 
 const Header = () => {
   return (
-    <Stack bg="blue.500">
-      <Stack bg="red.500">
+    <Stack bg="blue.300">
+      <Stack bg="red.600">
         <Heading textColor="white" textAlign="center" padding={3}>
           Pokémon Type Calculator
         </Heading>
