@@ -1,5 +1,6 @@
 import React from "react";
-import { Text, Stack, Heading, Box } from "@chakra-ui/react";
+import { Text, Stack, Heading, Box, Icon } from "@chakra-ui/react";
+import { FaVenus, FaMars } from "react-icons/fa";
 
 const About = ({
   abilities,
@@ -11,6 +12,9 @@ const About = ({
   height,
   weight,
 }) => {
+  const male = ((8 - gender) * 100) / 8;
+  const female = (gender * 100) / 8;
+
   return (
     <Stack spacing={3}>
       <Box as="table" width="100%">
@@ -112,19 +116,30 @@ const About = ({
             >
               Gender
             </Text>
-            <Text
+            <Stack
               as="td"
+              isInline
               paddingY={1}
+              spacing={2}
               width="60%"
               fontWeight="bold"
               textTransform="capitalize"
             >
-              {gender < 0
-                ? "Null"
-                : `${(gender * 100) / 8}% female, ${
-                    ((8 - gender) * 100) / 8
-                  }% male`}
-            </Text>
+              {gender < 0 ? (
+                <Text>Null</Text>
+              ) : (
+                <>
+                  <Stack isInline alignItems="center">
+                    <Icon as={FaMars} color="blue.500" w={6} h={6} />
+                    <Text>{male}%</Text>
+                  </Stack>
+                  <Stack isInline alignItems="center">
+                    <Icon as={FaVenus} color="pink.500" w={6} h={6} />
+                    <Text>{female}%</Text>
+                  </Stack>
+                </>
+              )}
+            </Stack>
           </tr>
           <tr>
             <Text
