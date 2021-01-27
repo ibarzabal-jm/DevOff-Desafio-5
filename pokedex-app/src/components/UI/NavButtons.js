@@ -4,7 +4,7 @@ import { Link as ReachLink } from "react-router-dom";
 
 const NavButtons = () => {
   return (
-    <SimpleGrid gap={3} columns={2} padding={3}>
+    <SimpleGrid gap={3} columns={2} padding={3} margin={10}>
       <Stack
         align="center"
         bg="grass"
