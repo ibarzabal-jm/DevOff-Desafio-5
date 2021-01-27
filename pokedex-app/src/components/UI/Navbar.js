@@ -16,11 +16,11 @@ const Navbar = () => {
           PokedexApp
         </Button>
       </Stack>
-      <Stack isInline>
+      <Stack isInline mr={2}>
         <Button
-          size="md"
+          size="sm"
           color="white"
-          bg="fire"
+          bg="grass"
           _hover={{ color: "black", opacity: 0.8 }}
           as={ReachLink}
           to="/okedex"
@@ -28,22 +28,24 @@ const Navbar = () => {
           Pokedex
         </Button>
         <Button
-          size="md"
+          size="sm"
           color="white"
-          bg="ground"
+          bg="poison"
           _hover={{ color: "black", opacity: 0.8 }}
           as={ReachLink}
           to="/combination"
         >
-          Type Calculator
+          Type Weaks
         </Button>
         <Button
-          size="md"
+          size="sm"
           color="white"
           bg="water"
           _hover={{ color: "black", opacity: 0.8 }}
+          as={ReachLink}
+          to="/search"
         >
-          Get Pokemon
+          Search Pokemon
         </Button>
       </Stack>
     </Stack>
