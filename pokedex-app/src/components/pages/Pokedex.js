@@ -26,7 +26,7 @@ const Pokedex = () => {
   const { pokemons, loading } = useFetchPokedex(page);
 
   return (
-    <Stack padding={5} spacing={5}>
+    <Stack padding={5} bg="gray.200" rounded={20}>
       <Heading fontSize="4xl" alignSelf="flex-start">
         Pokedex
       </Heading>
@@ -41,7 +41,7 @@ const Pokedex = () => {
           size="xl"
         />
       ) : (
-        <SimpleGrid gap={3} columns={2} padding={3}>
+        <SimpleGrid gap={3} columns={2}>
           {pokemons?.map((pokemon, index) => (
             <motion.div
               animate="visible"
