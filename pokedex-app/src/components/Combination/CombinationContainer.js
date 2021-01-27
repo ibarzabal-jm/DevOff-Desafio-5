@@ -1,5 +1,13 @@
 import React, { useState } from "react";
-import { Box, Flex, Stack,  Heading, Badge } from "@chakra-ui/react";
+import {
+  Box,
+  Flex,
+  Stack,
+  Heading,
+  Image,
+  Tag,
+  TagLabel,
+} from "@chakra-ui/react";
 import ResultsCombination from "./ResultsCombination";
 
 const CombinationContainer = () => {
@@ -31,7 +39,7 @@ const CombinationContainer = () => {
     <Flex width="100%">
       <Flex
         alignItems="center"
-        bg="gray.200"
+        bg="gray.100"
         borderRadius={8}
         direction="row"
         justify="center"
@@ -46,13 +54,12 @@ const CombinationContainer = () => {
             <Heading textAlign="center">Choose 1° Type</Heading>
             <Flex direction="row" w="400px" wrap="wrap" justifyContent="center">
               {types.map((type) => (
-                <Badge
+                <Tag
                   bg={type}
                   cursor="pointer"
                   key={type}
                   margin="8px"
                   rounded={999}
-                  textAlign="center"
                   maxW="100px"
                   w="33%"
                   onClick={() =>
@@ -61,8 +68,18 @@ const CombinationContainer = () => {
                       : (setSecondType(null), setFirstType(type))
                   }
                 >
-                  {type}
-                </Badge>
+                  <Image
+                    opacity={type !== firstType && "0.2"}
+                    maxWidth="100px"
+                    width={4}
+                    src="../assets/ui/pokeball.svg"
+                    ml={-1}
+                    mr={3}
+                  />
+                  <TagLabel textTransform="capitalize" fontWeight="bold">
+                    {type}
+                  </TagLabel>
+                </Tag>
               ))}
             </Flex>
           </Stack>
@@ -70,13 +87,12 @@ const CombinationContainer = () => {
             <Heading textAlign="center">Choose 2° Type</Heading>
             <Flex direction="row" w="400px" wrap="wrap" justifyContent="center">
               {types.map((type) => (
-                <Badge
+                <Tag
                   bg={type}
                   cursor="pointer"
                   key={type}
                   margin="8px"
                   rounded={999}
-                  textAlign="center"
                   maxW="100px"
                   w="33%"
                   onClick={() =>
@@ -85,23 +101,42 @@ const CombinationContainer = () => {
                       : setSecondType(null)
                   }
                 >
-                  {type}
-                </Badge>
+                  <Image
+                    opacity={type !== secondType && "0.2"}
+                    maxWidth="100px"
+                    width={4}
+                    src="../assets/ui/pokeball.svg"
+                    ml={-1}
+                    mr={3}
+                  />
+                  <TagLabel textTransform="capitalize" fontWeight="bold">
+                    {type}
+                  </TagLabel>
+                </Tag>
               ))}
 
-              <Badge
+              <Tag
                 bg="grey"
                 cursor="pointer"
-                fontSize="0.8em"
+                key="none"
+                margin="8px"
                 rounded={999}
                 maxW="100px"
                 w="33%"
-                textAlign="center"
-                textTransform="capitalize"
                 onClick={() => setSecondType(null)}
               >
-                NONE
-              </Badge>
+                <Image
+                  opacity={null !== secondType && "0.2"}
+                  maxWidth="100px"
+                  width={4}
+                  src="../assets/ui/pokeball.svg"
+                  ml={-1}
+                  mr={3}
+                />
+                <TagLabel textTransform="capitalize" fontWeight="bold">
+                  None
+                </TagLabel>
+              </Tag>
             </Flex>
           </Stack>
         </Stack>

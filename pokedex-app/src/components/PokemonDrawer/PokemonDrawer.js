@@ -9,7 +9,7 @@ import {
   Image,
 } from "@chakra-ui/react";
 import { ArrowBackIcon, StarIcon } from "@chakra-ui/icons";
-import { PokeInfo } from "./PokeInfo";
+import PokeInfo from "./PokeInfo";
 
 const PokemonDrawer = ({ onClose, pokemon }) => {
   return (

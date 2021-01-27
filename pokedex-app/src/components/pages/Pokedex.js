@@ -1,26 +1,29 @@
-import React, { useEffect, useState } from "react";
-import { SimpleGrid, Heading, Stack, Button } from "@chakra-ui/react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 
-import api from "../../helpers/api";
+import { SimpleGrid, Heading, Stack, Button, Spinner } from "@chakra-ui/react";
+
 import PokemonThumbnail from "../PokemonThumbnail";
-import PokemonDrawer from "../PokemonDrawer";
+import { useFetchPokedex } from "../../hooks/useFetchPokedex";
 
 const Pokedex = () => {
-  const [pokemons, setPokemons] = useState([]);
   const [page, setPage] = useState(0);
-  const [selected, setSelected] = useState(null);
 
-  const handleNextPage = () => {
-    setPage(page + 1);
-  };
-  const handlePrevPage = () => {
-    setPage(page - 1);
-  };
+  const pagesGenerations = [
+    { name: "I", page: 0 },
+    { name: "II", page: 15 },
+    { name: "III", page: 25 },
+    { name: "IV", page: 38 },
+    { name: "V", page: 49 },
+    { name: "VI", page: 65 },
+    { name: "VII", page: 72 },
+    { name: "VIII", page: 81 },
+    { name: "Variants", page: 89 },
+    { name: "Megas", page: 93 },
+    { name: "Gmax", page: 108 },
+  ];
 
-  useEffect(() => {
-    api.list(page).then((newPokemons) => setPokemons(newPokemons));
-  }, [page]);
+  const { pokemons, loading } = useFetchPokedex(page);
 
   return (
     <Stack padding={5} spacing={5}>
@@ -28,55 +31,66 @@ const Pokedex = () => {
         Pokedex
       </Heading>
 
-      <SimpleGrid gap={3} columns={2} padding={3}>
-        {pokemons?.map((pokemon, index) => (
-          <motion.div
-            animate="visible"
-            key={pokemon.name}
-            custom={index}
-            initial="hidden"
-            variants={{
-              hidden: { opacity: 0, y: 150 },
-              visible: (index) => ({
-                opacity: 1,
-                y: 0,
-                transition: {
-                  delay: index * 0.05,
-                },
-              }),
-            }}
-          >
-            <PokemonThumbnail
-              pokemon={pokemon}
-              onClick={() => setSelected(pokemon)}
-            />
-          </motion.div>
-        ))}
-      </SimpleGrid>
-      <Stack isInline alignSelf="center">
+      {loading ? (
+        <Spinner
+          alignSelf="center"
+          thickness="4px"
+          speed="0.5s"
+          emptyColor="gray.200"
+          color="black"
+          size="xl"
+        />
+      ) : (
+        <SimpleGrid gap={3} columns={2} padding={3}>
+          {pokemons?.map((pokemon, index) => (
+            <motion.div
+              animate="visible"
+              key={pokemon.name}
+              custom={index}
+              initial="hidden"
+              variants={{
+                hidden: { opacity: 0, y: 150 },
+                visible: (index) => ({
+                  opacity: 1,
+                  y: 0,
+                  transition: {
+                    delay: index * 0.05,
+                  },
+                }),
+              }}
+            >
+              <PokemonThumbnail pokemon={pokemon} />
+            </motion.div>
+          ))}
+        </SimpleGrid>
+      )}
+      <Stack isInline justify="center" alignItems="center">
         {page > 0 && (
           <Button
             bg="primary"
             color="white"
             _hover={{ color: "black", background: "white", border: "1px" }}
-            onClick={handlePrevPage}
+            onClick={() => setPage(page - 1)}
           >
             Prev Page
           </Button>
         )}
-        <Button
-          bg="primary"
-          color="white"
-          _hover={{ color: "black", background: "white", border: "1px" }}
-          onClick={handleNextPage}
-        >
-          Next Page
-        </Button>
+        {pagesGenerations.map(({ name, page }) => (
+          <Button key={name} size="sm" onClick={() => setPage(page)}>
+            {name}
+          </Button>
+        ))}
+        {page < 111 && (
+          <Button
+            bg="primary"
+            color="white"
+            _hover={{ color: "black", background: "white", border: "1px" }}
+            onClick={() => setPage(page + 1)}
+          >
+            Next Page
+          </Button>
+        )}
       </Stack>
-
-      {selected && (
-        <PokemonDrawer pokemon={selected} onClose={() => setSelected(null)} />
-      )}
     </Stack>
   );
 };

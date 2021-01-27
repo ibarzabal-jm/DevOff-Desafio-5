@@ -1,14 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import { Heading, Stack, Text, Image } from "@chakra-ui/react";
+import PokemonDrawer from "./PokemonDrawer/PokemonDrawer";
 
-const PokemonThumbnail = ({ pokemon, onClick }) => {
+const PokemonThumbnail = ({ pokemon }) => {
+  const [drawer, setDrawer] = useState(false);
+
   return (
     <Stack
       color="white"
       backgroundColor={`${pokemon.types[0]}`}
       borderRadius={12}
       padding={3}
-      onClick={onClick}
+      onClick={() => setDrawer(true)}
       cursor="pointer"
     >
       <Stack direction="row" align="baseline" justifyContent="space-between">
@@ -34,6 +37,9 @@ const PokemonThumbnail = ({ pokemon, onClick }) => {
         </Stack>
         <Image maxWidth="100px" width={20} src={pokemon.image}></Image>
       </Stack>
+      {drawer && (
+        <PokemonDrawer pokemon={pokemon} onClose={() => setDrawer(false)} />
+      )}
     </Stack>
   );
 };

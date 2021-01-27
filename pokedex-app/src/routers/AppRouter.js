@@ -6,6 +6,7 @@ import Pokedex from "../components/pages/Pokedex";
 import LandingPage from "../components/pages/LandingPage";
 import Footer from "../components/UI/Footer";
 import TypeCombination from "../components/pages/TypeCombination";
+import MovesContainer from "../components/pages/MovesContainer";
 
 export const AppRouter = () => {
   return (
@@ -13,6 +14,9 @@ export const AppRouter = () => {
       <div>
         <Navbar />
         <Switch>
+          <Route exact path="/moves">
+            <MovesContainer />
+          </Route>
           <Route exact path="/combination">
             <TypeCombination />
           </Route>

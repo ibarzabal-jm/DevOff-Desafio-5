@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Stack, Flex, Text, Badge, Heading } from "@chakra-ui/react";
-import { getWeaknesses } from "../../helpers/getWeaknesses";
+import { getWeaknesses } from "../../api/getWeaknesses";
 
 const ResultsCombination = ({ firstType, secondType }) => {
   const values = [4, 2, 1, 0.5, 0.25, 0];
@@ -35,7 +35,7 @@ const ResultsCombination = ({ firstType, secondType }) => {
 
   return (
     <Stack spacing={10}>
-      <Heading textAlign="center">Results Combination:</Heading>
+      <Heading textAlign="center">Weaks Combination:</Heading>
       <Stack isInline justify="center" alignItems="baseline">
         <Flex
           align="center"
