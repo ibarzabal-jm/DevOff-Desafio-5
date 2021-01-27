@@ -18,9 +18,9 @@ const Pokedex = () => {
     { name: "VI", page: 65 },
     { name: "VII", page: 72 },
     { name: "VIII", page: 81 },
-    { name: "Variants", page: 89 },
-    { name: "Megas", page: 93 },
-    { name: "Gmax", page: 108 },
+    // { name: "Variants", page: 89 },
+    // { name: "Megas", page: 93 },
+    // { name: "Gmax", page: 108 },
   ];
 
   const { pokemons, loading } = useFetchPokedex(page);
