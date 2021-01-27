@@ -1,12 +1,15 @@
 import React from "react";
 
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+
 import Navbar from "../components/UI/Navbar";
-import Pokedex from "../components/pages/Pokedex";
-import LandingPage from "../components/pages/LandingPage";
 import Footer from "../components/UI/Footer";
-import TypeCombination from "../components/pages/TypeCombination";
-import MovesContainer from "../components/pages/MovesContainer";
+
+import Landing from "../components/Pages/Landing";
+import Pokedex from "../components/Pages/Pokedex";
+import SearchPokemons from "../components/Pages/SearchPokemons";
+import SearchMoves from "../components/Pages/SearchMoves";
+import TypeCombination from "../components/Pages/TypeCombination";
 
 export const AppRouter = () => {
   return (
@@ -14,8 +17,11 @@ export const AppRouter = () => {
       <div>
         <Navbar />
         <Switch>
+          <Route exact path="/search">
+            <SearchPokemons />
+          </Route>
           <Route exact path="/moves">
-            <MovesContainer />
+            <SearchMoves />
           </Route>
           <Route exact path="/combination">
             <TypeCombination />
@@ -24,7 +30,7 @@ export const AppRouter = () => {
             <Pokedex />
           </Route>
           <Route path="/">
-            <LandingPage />
+            <Landing />
           </Route>
         </Switch>
         <Footer />
