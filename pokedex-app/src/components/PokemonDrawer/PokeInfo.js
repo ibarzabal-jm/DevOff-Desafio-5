@@ -6,6 +6,7 @@ import {
   TabPanel,
   TabPanels,
   Spinner,
+  Text,
 } from "@chakra-ui/react";
 
 import { useFetchPokeInfo } from "../../hooks/useFetchPokeInfo";
@@ -70,7 +71,13 @@ const PokeInfo = ({ pokemon: { types, id } }) => {
           </TabPanel>
 
           <TabPanel>
-            <Moves moves={data.moves} />
+            {data.moves.length > 0 ? (
+              <Moves moves={data.moves} />
+            ) : (
+              <Text color="crimson" align="center">
+                No data from PokeApi
+              </Text>
+            )}
           </TabPanel>
         </TabPanels>
       )}
