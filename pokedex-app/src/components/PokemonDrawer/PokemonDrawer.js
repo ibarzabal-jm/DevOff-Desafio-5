@@ -7,9 +7,11 @@ import {
   Stack,
   Heading,
   Image,
+  Icon,
 } from "@chakra-ui/react";
-import { ArrowBackIcon, StarIcon } from "@chakra-ui/icons";
+import { ArrowBackIcon } from "@chakra-ui/icons";
 import PokeInfo from "./PokeInfo";
+import { FaHeart } from "react-icons/fa";
 
 const PokemonDrawer = ({ onClose, pokemon }) => {
   return (
@@ -24,7 +26,7 @@ const PokemonDrawer = ({ onClose, pokemon }) => {
           >
             <Stack direction="row" fontSize="2xl" justify="space-between">
               <ArrowBackIcon onClick={onClose} cursor="pointer" />
-              <StarIcon />
+              <Icon as={FaHeart} w={6} h={6} />
             </Stack>
             <Stack direction="row" color="white">
               <Stack width="100%">
