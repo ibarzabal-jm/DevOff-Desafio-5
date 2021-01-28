@@ -3,12 +3,18 @@ import { Heading, SimpleGrid, Stack } from "@chakra-ui/react";
 import { AddPokemon } from "../SearchPokemon/AddPokemon";
 import PokemonThumbnail from "../PokemonThumbnail";
 
-const SearchPokemonsPage = () => {
+const SearchPokemons = () => {
   const [pokemons, setPokemons] = useState([]);
 
   return (
-    <Stack spacing={4} padding={10}>
-      <Heading textAlign="center">What Pokemon are you looking for?</Heading>
+    <Stack
+      spacing={3}
+      padding={{ base: 1, md: 4 }}
+      margin={{ base: 0, sm: 1, md: 4 }}
+    >
+      <Heading textAlign="center" mt={4}>
+        What Pokemon are you looking for?
+      </Heading>
       <AddPokemon setPokemons={setPokemons} />
       {pokemons.length > 0 && (
         <SimpleGrid
@@ -18,8 +24,8 @@ const SearchPokemonsPage = () => {
           bg="gray.200"
           padding={2}
         >
-          {pokemons.map((pokemon) => (
-            <PokemonThumbnail pokemon={pokemon} />
+          {pokemons.map((pokemon, id) => (
+            <PokemonThumbnail key={id} pokemon={pokemon} />
           ))}
         </SimpleGrid>
       )}
@@ -27,4 +33,4 @@ const SearchPokemonsPage = () => {
   );
 };
 
-export default SearchPokemonsPage;
+export default SearchPokemons;
