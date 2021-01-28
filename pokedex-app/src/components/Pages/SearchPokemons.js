@@ -11,6 +11,7 @@ const SearchPokemons = () => {
       spacing={3}
       padding={{ base: 1, md: 4 }}
       margin={{ base: 0, sm: 1, md: 4 }}
+      bg="#fff"
     >
       <Heading textAlign="center" mt={4}>
         What Pokemon are you looking for?
