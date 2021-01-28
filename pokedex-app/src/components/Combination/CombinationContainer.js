@@ -42,14 +42,15 @@ const CombinationContainer = () => {
       borderRadius={8}
       direction="row"
       justify="center"
-      margin={3}
-      padding={4}
+      margin={{ base: 3, md: 4 }}
+      padding={{ base: 0, md: 4 }}
+      spacing={40}
       wrap="wrap"
     >
-      <Stack w={{ base: "100%", md: "50%" }} spacing={10}>
-        <Stack paddingX={2} spacing={3} alignItems="center">
+      <Stack w={{ base: "100%", md: "50%" }} spacing={4}>
+        <Stack spacing={2} alignItems="center">
           <Heading textAlign="center">Choose 1° Type</Heading>
-          <Flex direction="row" w="400px" wrap="wrap" justifyContent="center">
+          <Flex direction="row" wrap="wrap" justifyContent="center">
             {types.map((type) => (
               <Tag
                 bg={type}
@@ -58,7 +59,7 @@ const CombinationContainer = () => {
                 margin="8px"
                 rounded={999}
                 maxW="100px"
-                w="33%"
+                w="32%"
                 onClick={() =>
                   type !== secondType
                     ? setFirstType(type)
@@ -80,9 +81,9 @@ const CombinationContainer = () => {
             ))}
           </Flex>
         </Stack>
-        <Stack paddingX={2} spacing={3} alignItems="center">
+        <Stack spacing={2} alignItems="center">
           <Heading textAlign="center">Choose 2° Type</Heading>
-          <Flex direction="row" w="400px" wrap="wrap" justifyContent="center">
+          <Flex direction="row" wrap="wrap" justifyContent="center">
             {types.map((type) => (
               <Tag
                 bg={type}
@@ -91,7 +92,7 @@ const CombinationContainer = () => {
                 margin="8px"
                 rounded={999}
                 maxW="100px"
-                w="33%"
+                w="32%"
                 onClick={() =>
                   type !== firstType ? setSecondType(type) : setSecondType(null)
                 }
@@ -135,7 +136,6 @@ const CombinationContainer = () => {
           </Flex>
         </Stack>
       </Stack>
-
       <Box
         marginTop={{ base: "4rem", md: "0px" }}
         w={{ base: "100%", md: "50%" }}
