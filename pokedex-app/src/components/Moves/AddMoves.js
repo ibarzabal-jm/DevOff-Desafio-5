@@ -38,6 +38,7 @@ const AddMoves = ({ setMoves }) => {
           setError(`${inputValue} not found.`);
         });
     } else {
+      setLoading(false);
       setError("Move name to short");
     }
   };
