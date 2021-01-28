@@ -26,7 +26,13 @@ const Pokedex = () => {
   const { pokemons, loading } = useFetchPokedex(page);
 
   return (
-    <Stack padding={5} bg="gray.200" rounded={20} margin={10}>
+    <Stack
+      padding={{ base: 1, md: 4 }}
+      spacing={3}
+      bg="gray.200"
+      rounded={20}
+      margin={{ base: 0, sm: 1, md: 4 }}
+    >
       <Heading fontSize="4xl" alignSelf="flex-start">
         Pokedex
       </Heading>
@@ -76,7 +82,15 @@ const Pokedex = () => {
           </Button>
         )}
         {pagesGenerations.map(({ name, page }) => (
-          <Button key={name} size="sm" onClick={() => setPage(page)}>
+          <Button
+            display={{ base: "none", md: "inline-block" }}
+            key={name}
+            size="md"
+            onClick={() => setPage(page)}
+            bg="secondary"
+            color="white"
+            _hover={{ background: "crimson" }}
+          >
             {name}
           </Button>
         ))}
