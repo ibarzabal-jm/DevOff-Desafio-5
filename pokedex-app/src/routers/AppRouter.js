@@ -14,7 +14,7 @@ import TypeCombination from "../components/Pages/TypeCombination";
 export const AppRouter = () => {
   return (
     <Router>
-      <div>
+      <>
         <Navbar />
         <Switch>
           <Route exact path="/search">
@@ -34,7 +34,7 @@ export const AppRouter = () => {
           </Route>
         </Switch>
         <Footer />
-      </div>
+      </>
     </Router>
   );
 };
