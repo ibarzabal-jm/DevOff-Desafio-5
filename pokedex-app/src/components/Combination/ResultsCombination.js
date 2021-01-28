@@ -34,7 +34,11 @@ const ResultsCombination = ({ firstType, secondType }) => {
   };
 
   return (
-    <Stack spacing={10}>
+    <Stack
+      spacing={5}
+      padding={{ base: 0, md: 3 }}
+      marginBottom={{ base: 2, md: 0 }}
+    >
       <Heading textAlign="center">Weaks Combination:</Heading>
       <Stack isInline justify="center" alignItems="baseline">
         <Flex
@@ -71,22 +75,17 @@ const ResultsCombination = ({ firstType, secondType }) => {
           </>
         )}
       </Stack>
-      <Stack spacing={4} marginY={2}>
+      <Stack>
         {values.map(
           (value) =>
             combination[value] && (
-              <Stack
-                key={value}
-                marginY={3}
-                justifyItems="center"
-                alignItems="center"
-              >
+              <Stack key={value} justifyItems="center" alignItems="center">
                 <Text textAlign="center" fontWeight="bold">
                   {renderWeaks(value)}
                 </Text>
                 <Flex
                   direction="row"
-                  w="400px"
+                  w="100%"
                   wrap="wrap"
                   justifyContent="center"
                 >
@@ -94,7 +93,7 @@ const ResultsCombination = ({ firstType, secondType }) => {
                     <Badge
                       rounded={999}
                       maxW="100px"
-                      w="33%"
+                      w="32%"
                       margin="8px"
                       textAlign="center"
                       key={type}
