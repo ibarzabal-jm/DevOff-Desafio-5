@@ -7,10 +7,17 @@ import MoveCard from "../Moves/MoveCard";
 const SearchMoves = () => {
   const [moves, setMoves] = useState([]);
   return (
-    <Stack spacing={7} padding={10} bg="gray.200" rounded={30} minH="50vh">
+    <Stack
+      spacing={7}
+      bg="gray.400"
+      rounded={30}
+      padding={{ base: 1, md: 10 }}
+      margin={{ base: 0, sm: 1, md: 4 }}
+      minH="100vh"
+    >
       <Heading textAlign="center">What move are you looking for?</Heading>
       <AddMoves setMoves={setMoves} />
-      <SimpleGrid columns={2} gap={3}>
+      <SimpleGrid display={{ md: "grid" }} columns={2} gap={3}>
         {moves.map((move, index) => (
           <MoveCard move={move} key={index} />
         ))}
