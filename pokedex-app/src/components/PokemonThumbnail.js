@@ -10,7 +10,7 @@ const PokemonThumbnail = ({ pokemon }) => {
       color="white"
       backgroundColor={`${pokemon.types[0]}`}
       borderRadius={12}
-      padding={3}
+      padding={2}
       onClick={() => setDrawer(true)}
       cursor="pointer"
     >
