@@ -7,12 +7,7 @@ const SearchPokemons = () => {
   const [pokemons, setPokemons] = useState([]);
 
   return (
-    <Stack
-      spacing={3}
-      padding={{ base: 1, md: 4 }}
-      margin={{ base: 0, sm: 1, md: 4 }}
-      bg="#fff"
-    >
+    <Stack spacing={3} padding={4} margin={{ base: 0, md: 4 }} bg="#fff">
       <Heading textAlign="center" mt={4}>
         What Pokemon are you looking for?
       </Heading>
