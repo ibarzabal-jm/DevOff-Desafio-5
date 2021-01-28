@@ -4,11 +4,18 @@ import { Link as ReachLink } from "react-router-dom";
 
 const NavButtons = () => {
   return (
-    <SimpleGrid gap={3} columns={2} padding={3} margin={{base:0, md: 10}}>
+    <SimpleGrid
+      gap={3}
+      columns={2}
+      bg="#fff"
+      padding={3}
+      margin={{ base: 0, md: 2 }}
+    >
       <Stack
         align="center"
         bg="grass"
         borderRadius={20}
+        boxShadow="0px 5px  3px #ccc"
         height={16}
         isInline
         justifyContent="space-between"
@@ -29,9 +36,10 @@ const NavButtons = () => {
       <Stack
         align="center"
         bg="fire"
+        borderRadius={20}
+        boxShadow="0px 5px  3px #ccc"
         height={16}
         overflow="hidden"
-        borderRadius={20}
         isInline
         justifyContent="space-between"
         padding={3}
@@ -50,9 +58,10 @@ const NavButtons = () => {
       <Stack
         align="center"
         bg="water"
+        borderRadius={20}
+        boxShadow="0px 5px  3px #ccc"
         height={16}
         overflow="hidden"
-        borderRadius={20}
         isInline
         justifyContent="space-between"
         padding={3}
@@ -71,9 +80,10 @@ const NavButtons = () => {
       <Stack
         align="center"
         bg="poison"
+        borderRadius={20}
+        boxShadow="0px 5px  3px #ccc"
         height={16}
         overflow="hidden"
-        borderRadius={20}
         isInline
         justifyContent="space-between"
         padding={3}
