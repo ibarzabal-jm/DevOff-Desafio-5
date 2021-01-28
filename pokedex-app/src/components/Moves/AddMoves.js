@@ -25,7 +25,6 @@ const AddMoves = ({ setMoves }) => {
     setError(false);
 
     const moveName = inputValue.replace(/ /g, "-").toLowerCase();
-    console.log(moveName);
 
     if (moveName.length > 2) {
       await getMoveByName(moveName)
