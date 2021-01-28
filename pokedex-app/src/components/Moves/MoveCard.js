@@ -15,7 +15,13 @@ const MoveCard = ({ move }) => {
     type,
   } = move;
   return (
-    <Stack bg={type} borderRadius={12} padding={3} spacing={6}>
+    <Stack
+      bg={type}
+      borderRadius={12}
+      padding={3}
+      spacing={6}
+      marginBottom={{ base: 4, md: 0 }}
+    >
       <Stack isInline justify="space-between" alignItems="center">
         <Heading color="white" textTransform="capitalize" fontSize="xl">
           {name}
@@ -68,7 +74,6 @@ const MoveCard = ({ move }) => {
         </Stack>
         <Stack justify="center" textAlign="center">
           <Text textTransform="upperCase" fontWeight="bold">
-            {" "}
             pp
           </Text>
           <Text textTransform="capitalize">{pp}</Text>
