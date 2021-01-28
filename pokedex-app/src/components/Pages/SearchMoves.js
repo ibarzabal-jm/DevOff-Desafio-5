@@ -9,11 +9,10 @@ const SearchMoves = () => {
   return (
     <Stack
       spacing={7}
-      bg="gray.400"
+      bg="white"
       rounded={30}
       padding={{ base: 1, md: 10 }}
       margin={{ base: 0, sm: 1, md: 4 }}
-      minH="100vh"
     >
       <Heading textAlign="center">What move are you looking for?</Heading>
       <AddMoves setMoves={setMoves} />
