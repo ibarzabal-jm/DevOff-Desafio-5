@@ -22,6 +22,10 @@ export const AppRouter = () => {
           alignItems="stretch"
           maxWidth="1920px"
           minH="100vh"
+          backgroundImage={{
+            base: "none",
+            md: "url(/assets/ui/background.png)",
+          }}
         >
           <Switch>
             <Route exact path="/search">
