@@ -5,11 +5,11 @@ import { Link as ReachLink } from "react-router-dom";
 const NavButtons = () => {
   return (
     <SimpleGrid
-      gap={3}
-      columns={2}
       bg="#fff"
-      padding={3}
-      margin={{ base: 0, md: 2 }}
+      columns={2}
+      gap={3}
+      margin={{ base: 0, md: 4 }}
+      padding={4}
     >
       <Stack
         align="center"
