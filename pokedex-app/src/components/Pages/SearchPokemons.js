@@ -2,12 +2,22 @@ import React, { useState } from "react";
 import { Heading, SimpleGrid, Stack } from "@chakra-ui/react";
 import { AddPokemon } from "../SearchPokemon/AddPokemon";
 import PokemonThumbnail from "../PokemonThumbnail";
+import { useLocation } from "react-router-dom";
 
 const SearchPokemons = () => {
   const [pokemons, setPokemons] = useState([]);
 
+  const { pathname } = useLocation();
+
   return (
-    <Stack spacing={3} padding={4} margin={{ base: 0, md: 4 }} bg="#fff">
+    <Stack
+      bg="#fff"
+      padding={4}
+      spacing={3}
+      margin={{ base: 0, md: 4 }}
+      rounded={{ base: 0, md: 12 }}
+      minH={pathname === "/search" ? "70vh" : "auto"}
+    >
       <Heading textAlign="center" mt={4}>
         What Pokemon are you looking for?
       </Heading>
