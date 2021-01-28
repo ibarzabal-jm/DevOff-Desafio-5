@@ -3,7 +3,7 @@ import { Badge, Box, Table, Tbody, Text, Tr } from "@chakra-ui/react";
 
 const Moves = ({ moves }) => {
   return (
-    <Table variant="striped" colorScheme="gray">
+    <Table variant="striped" colorScheme="gray" w="100%">
       <thead align="center">
         <tr>
           <th>name</th>
