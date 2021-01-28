@@ -38,6 +38,7 @@ export const AddPokemon = ({ setPokemons }) => {
           setError(`${nameSearch} not found`);
         });
     } else {
+      setLoading(false);
       setError("Pokemon name to short");
     }
   };
