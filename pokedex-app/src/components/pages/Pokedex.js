@@ -28,7 +28,7 @@ const Pokedex = () => {
   return (
     <Stack
       bg="gray.200"
-      margin={{ base: 0, sm: 1, md: 4 }}
+      margin={{ base: 0, md: 4 }}
       padding={{ base: 1, md: 4 }}
       rounded={20}
       spacing={3}
