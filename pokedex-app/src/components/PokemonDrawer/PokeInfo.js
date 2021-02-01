@@ -45,7 +45,7 @@ const PokeInfo = ({ pokemon: { types, id } }) => {
           size="xl"
         />
       ) : (
-        <TabPanels align="start" paddingX={0}>
+        <TabPanels align="center">
           <TabPanel>
             <About
               abilities={data.abilities}
@@ -70,7 +70,7 @@ const PokeInfo = ({ pokemon: { types, id } }) => {
             <Description description={data.description} />
           </TabPanel>
 
-          <TabPanel>
+          <TabPanel paddingX={2}>
             {data.moves.length > 0 ? (
               <Moves moves={data.moves} />
             ) : (
