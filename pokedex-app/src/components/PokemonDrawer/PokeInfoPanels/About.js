@@ -103,7 +103,9 @@ const About = ({
           </tr>
         </tbody>
       </Box>
-      <Heading size="md">Breeding</Heading>
+      <Heading size="md" textAlign="start">
+        Breeding
+      </Heading>
       <Box as="table">
         <tbody>
           <tr>
