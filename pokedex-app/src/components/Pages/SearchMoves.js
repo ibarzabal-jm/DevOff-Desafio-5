@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { Heading, SimpleGrid, Stack } from "@chakra-ui/react";
 
-import AddMoves from "../Moves/AddMoves";
-import MoveCard from "../Moves/MoveCard";
+import AddMoves from "../SearchMoves/AddMoves";
+import MoveCard from "../SearchMoves/MoveCard";
 
 const SearchMoves = () => {
   const [moves, setMoves] = useState([]);
