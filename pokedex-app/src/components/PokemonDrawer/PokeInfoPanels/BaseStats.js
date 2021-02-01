@@ -46,7 +46,7 @@ const BaseStats = ({ stats, weaknesses, totalStats }) => {
   };
 
   return (
-    <Stack>
+    <Stack spacing={4}>
       <Box as="table" width="100%">
         <tbody>
           {Object.entries(stats).map(([title, value]) => (
@@ -97,7 +97,9 @@ const BaseStats = ({ stats, weaknesses, totalStats }) => {
           </tr>
         </tbody>
       </Box>
-      <Heading size="md">Weaknesses</Heading>
+      <Heading size="md" textAlign="start">
+        Weaknesses
+      </Heading>
       <Box as="table">
         <tbody>
           {getWeaks(weaknesses).map(([weak, types]) => (
@@ -123,7 +125,9 @@ const BaseStats = ({ stats, weaknesses, totalStats }) => {
         </tbody>
       </Box>
 
-      <Heading size="md">Resistance</Heading>
+      <Heading size="md" textAlign="start">
+        Resistance
+      </Heading>
       <Box as="table">
         <tbody>
           {getResist(weaknesses).map(([weak, types]) => (
