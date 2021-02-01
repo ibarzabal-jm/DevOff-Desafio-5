@@ -10,18 +10,23 @@ import Pokedex from "../components/Pages/Pokedex";
 import SearchPokemons from "../components/Pages/SearchPokemons";
 import SearchMoves from "../components/Pages/SearchMoves";
 import TypeCombination from "../components/Pages/TypeCombination";
-import { Flex } from "@chakra-ui/react";
+import { Flex, Grid } from "@chakra-ui/react";
 
 export const AppRouter = () => {
   return (
     <Router>
-      <>
+      <Grid
+        h="100vh"
+        width="100vw"
+        templateColumns="1fr"
+        templateRows="auto 1fr auto"
+      >
         <Navbar />
         <Flex
-          direction="column"
           alignItems="stretch"
-          maxWidth="1920px"
-          minH="100vh"
+          direction="column"
+          justifyItems="center"
+          overflow="auto"
           backgroundImage={{
             base: "none",
             md: "url(/assets/ui/background.png)",
@@ -46,7 +51,7 @@ export const AppRouter = () => {
           </Switch>
         </Flex>
         <Footer />
-      </>
+      </Grid>
     </Router>
   );
 };
