@@ -27,7 +27,7 @@ export const AddPokemon = ({ setPokemons }) => {
 
     if (inputValue.trim().length > 2) {
       await api
-        .miniDataByName(inputValue.toLowerCase())
+        .miniData(inputValue.toLowerCase())
         .then((pokemon) => {
           setLoading(false);
           setPokemons((pokemons) => [pokemon, ...pokemons]);
@@ -53,7 +53,7 @@ export const AddPokemon = ({ setPokemons }) => {
             cursor="pointer"
           />
           <Input
-            placeholder="Search Pokémon"
+            placeholder="Search Pokémon by ID or name"
             type="text"
             isInvalid={error}
             errorBorderColor="crimson"
