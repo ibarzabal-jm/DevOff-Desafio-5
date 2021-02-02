@@ -47,7 +47,7 @@ const NavButtons = () => {
         as={ReachLink}
         to="/moves"
       >
-        <Text color="white">Moves</Text>
+        <Text color="white">Search Moves</Text>
         <Image
           marginRight={-7}
           opacity="0.2"
@@ -79,6 +79,28 @@ const NavButtons = () => {
       </Stack>
       <Stack
         align="center"
+        bg="ground"
+        borderRadius={20}
+        boxShadow="0px 5px  3px #ccc"
+        height={16}
+        overflow="hidden"
+        isInline
+        justifyContent="space-between"
+        padding={3}
+        _hover={{ opacity: 0.8 }}
+        as={ReachLink}
+        to="/quiz"
+      >
+        <Text color="white">Who's that pokemon?</Text>
+        <Image
+          marginRight={-7}
+          opacity={0.2}
+          src="../assets/ui/pokeball.svg"
+          width={20}
+        />
+      </Stack>
+      <Stack
+        align="center"
         bg="poison"
         borderRadius={20}
         boxShadow="0px 5px  3px #ccc"
@@ -92,6 +114,30 @@ const NavButtons = () => {
         to="/combination"
       >
         <Text color="white">Types Weaks</Text>
+        <Image
+          marginRight={-7}
+          opacity={0.2}
+          src="../assets/ui/pokeball.svg"
+          width={20}
+        />
+      </Stack>
+      <Stack
+        align="center"
+        bg="fighting"
+        borderRadius={20}
+        boxShadow="0px 5px  3px #ccc"
+        height={16}
+        overflow="hidden"
+        isInline
+        justifyContent="space-between"
+        padding={3}
+        _hover={{ opacity: 0.8 }}
+        cursor="pointer"
+        onClick={() =>
+          window.open("https://juanmaportfolio.netlify.app/", "_blank")
+        }
+      >
+        <Text color="white">About Me</Text>
         <Image
           marginRight={-7}
           opacity={0.2}
