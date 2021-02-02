@@ -66,7 +66,7 @@ const AddMoves = ({ setMoves }) => {
       {loading && (
         <Spinner
           thickness="4px"
-          speed="0.65s"
+          speed="0.85s"
           emptyColor="blue.200"
           color="black"
           size="xl"
