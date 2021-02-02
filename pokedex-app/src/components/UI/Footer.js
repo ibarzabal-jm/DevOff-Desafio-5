@@ -4,7 +4,13 @@ import Copyright from "./Copyright";
 
 const Footer = () => {
   return (
-    <Stack textAlign="center" justify="center" bg="black" paddingY={4}>
+    <Stack
+      textAlign="center"
+      justify="center"
+      bg="black"
+      paddingY={4}
+      as="footer"
+    >
       <Copyright />
     </Stack>
   );
