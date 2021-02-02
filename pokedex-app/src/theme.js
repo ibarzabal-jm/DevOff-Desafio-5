@@ -12,7 +12,7 @@ export default extendTheme({
     electric: "#FEE63C",
     ground: "#d3b54a",
     psychic: "#F562B1",
-    fighting: "#A75545",
+    fighting: "#B1746D",
     fairy: "#FAADFF",
     rock: "#CEBD72",
     ghost: "#7A76D8",
