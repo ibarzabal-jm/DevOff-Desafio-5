@@ -16,7 +16,6 @@ const SearchPokemons = () => {
       spacing={3}
       margin={{ base: 0, md: 4 }}
       rounded={{ base: 0, md: 12 }}
-      minH={pathname === "/search" ? "70vh" : "auto"}
     >
       <Heading textAlign="center" mt={4}>
         What Pokemon are you looking for?
