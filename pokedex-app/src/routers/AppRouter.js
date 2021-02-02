@@ -11,6 +11,7 @@ import SearchPokemons from "../components/Pages/SearchPokemons";
 import SearchMoves from "../components/Pages/SearchMoves";
 import TypeCombination from "../components/Pages/TypeCombination";
 import { Flex, Grid } from "@chakra-ui/react";
+import PokemonQuiz from "../components/Pages/PokemonQuiz";
 
 export const AppRouter = () => {
   return (
@@ -22,11 +23,11 @@ export const AppRouter = () => {
         templateRows="auto 1fr auto"
       >
         <Navbar />
-        <Flex
-          alignItems="stretch"
-          direction="column"
-          justifyItems="center"
-          overflow="auto"
+
+        <Grid
+          justifyItems="stretch"
+          overflowY="scroll"
+          overflowX="hidden"
           backgroundImage={{
             base: "none",
             md: "url(/assets/ui/background.png)",
@@ -35,6 +36,9 @@ export const AppRouter = () => {
           <Switch>
             <Route exact path="/search">
               <SearchPokemons />
+            </Route>
+            <Route exact path="/quiz">
+              <PokemonQuiz />
             </Route>
             <Route exact path="/moves">
               <SearchMoves />
@@ -49,7 +53,7 @@ export const AppRouter = () => {
               <Landing />
             </Route>
           </Switch>
-        </Flex>
+        </Grid>
         <Footer />
       </Grid>
     </Router>
