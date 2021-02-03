@@ -1,17 +1,23 @@
-import React, { useState } from "react";
-import { Heading, Stack, Text } from "@chakra-ui/react";
-import PokemonThumbnail from "../PokemonThumbnail";
+import React, { useEffect, useState } from "react";
+import { Heading, Stack, Spinner } from "@chakra-ui/react";
 import { useFetchGetPokemonID } from "../../hooks/useFetchGetPokemonID";
 import Quiz from "../PokemonQuiz/Quiz";
+import SelectLevel from "../PokemonQuiz/SelectLevel";
 
 const PokemonQuiz = () => {
-  const [random, setRandom] = useState(3);
+  const getRandomNumber = (min, max) => {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  };
+
+  const [min, setMin] = useState(1);
+  const [max, setMax] = useState(151);
+  const [random, setRandom] = useState(getRandomNumber(min, max));
 
   const { pokemon, loading } = useFetchGetPokemonID(random);
 
-  const nextPokemon = () => {
-    setRandom(random + 1);
-  };
+  useEffect(() => {
+    setRandom(getRandomNumber(min, max));
+  }, [min, max]);
 
   return (
     <Stack
@@ -20,16 +26,29 @@ const PokemonQuiz = () => {
       spacing={3}
       margin={{ base: 0, md: 4 }}
       rounded={{ base: 0, md: 12 }}
-      height="100%"
     >
       <Heading textAlign="center" mt={4}>
         Who's that Pokémon?
       </Heading>
       {loading ? (
-        <Text>Loading...</Text>
+        <Stack alignItems="center">
+          <Spinner
+            thickness="4px"
+            speed="0.65s"
+            emptyColor="gray.200"
+            color="blue.500"
+            size="xl"
+            textAlign="center"
+          />
+        </Stack>
       ) : (
-        <Quiz pokemon={pokemon} nextPokemon={nextPokemon} />
+        <Quiz
+          pokemon={pokemon}
+          nextPokemon={() => setRandom(getRandomNumber(min, max))}
+        />
       )}
+
+      <SelectLevel setMin={setMin} setMax={setMax} />
     </Stack>
   );
 };
