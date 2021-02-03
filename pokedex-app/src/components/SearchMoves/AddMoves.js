@@ -15,10 +15,6 @@ const AddMoves = ({ setMoves }) => {
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
 
-  const handleInputChange = (e) => {
-    setInputValue(e.target.value);
-  };
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
@@ -58,7 +54,7 @@ const AddMoves = ({ setMoves }) => {
             isInvalid={error}
             errorBorderColor="crimson"
             value={inputValue}
-            onChange={handleInputChange}
+            onChange={(e) => setInputValue(e.target.value)}
           />
         </InputGroup>
       </form>
