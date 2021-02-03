@@ -17,12 +17,13 @@ export const useFetchPokedex = (page) => {
 
   useEffect(() => {
     setState({ pokemons: [], loading: true, error: null });
-    api.list(page).then((newPokemons) =>
-      setState({
-        pokemons: newPokemons,
-        loading: false,
-      })
-    );
+    api.list(page).then((newPokemons) => {
+      if (isMounted.current)
+        setState({
+          pokemons: newPokemons,
+          loading: false,
+        });
+    });
   }, [page]);
   return state;
 };
