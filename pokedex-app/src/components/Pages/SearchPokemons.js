@@ -1,16 +1,17 @@
 import React, { useState } from "react";
-import { Heading, SimpleGrid, Stack, IconButton } from "@chakra-ui/react";
+import { Heading, SimpleGrid, Stack } from "@chakra-ui/react";
 import { AddPokemon } from "../SearchPokemon/AddPokemon";
-import { Link } from "react-router-dom";
 
 import PokemonThumbnail from "../PokemonThumbnail";
 import { ArrowBackIcon } from "@chakra-ui/icons";
 import { useLocation } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 const SearchPokemons = () => {
   const [pokemons, setPokemons] = useState([]);
 
   const { pathname } = useLocation();
+  const history = useHistory();
 
   return (
     <Stack
@@ -21,15 +22,15 @@ const SearchPokemons = () => {
       rounded={{ base: 0, md: 12 }}
     >
       {pathname === "/search" && (
-        <IconButton
-          colorScheme="teal"
+        <ArrowBackIcon
           aria-label="go home"
-          icon={<ArrowBackIcon />}
-          width={8}
-          height={8}
+          width={{ base: 6, md: 8 }}
+          height={{ base: 6, md: 8 }}
           cursor="pointer"
-          as={Link}
-          to="/"
+          as="button"
+          onClick={() => {
+            history.goBack();
+          }}
         />
       )}
       <Heading textAlign="center" mt={4}>
