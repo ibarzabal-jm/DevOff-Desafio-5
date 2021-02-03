@@ -1,7 +1,8 @@
 # JuanmaPokedex
  Pokedex hecho con React Chakra UI (primera vez que lo utilizo) y PokeApi para la data pokemon.
  
- ## [Live Demo / Ver Demo](https://juanma-pokedex.netlify.app/)  
+## [Live Demo / Ver Demo](https://juanma-pokedex.netlify.app/)  
+Deploy en netlify.
 
 ## Terminado 🚀
 
