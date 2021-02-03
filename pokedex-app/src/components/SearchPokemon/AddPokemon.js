@@ -15,32 +15,23 @@ export const AddPokemon = ({ setPokemons }) => {
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
 
-  const handleInputChange = (e) => {
-    setInputValue(e.target.value);
-  };
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
     setError(null);
-    const nameSearch = inputValue;
+    const nameSearch = inputValue.replace(/ /g, "-").toLowerCase();
 
-    if (inputValue.trim().length > 2) {
-      await api
-        .miniData(inputValue.toLowerCase())
-        .then((pokemon) => {
-          setLoading(false);
-          setPokemons((pokemons) => [pokemon, ...pokemons]);
-          setInputValue("");
-        })
-        .catch((error) => {
-          setLoading(false);
-          setError(`${nameSearch} not found`);
-        });
-    } else {
-      setLoading(false);
-      setError("Pokemon name to short");
-    }
+    await api
+      .miniData(nameSearch)
+      .then((pokemon) => {
+        setLoading(false);
+        setPokemons((pokemons) => [pokemon, ...pokemons]);
+        setInputValue("");
+      })
+      .catch((error) => {
+        setLoading(false);
+        setError(`${nameSearch} not found`);
+      });
   };
 
   return (
@@ -53,12 +44,12 @@ export const AddPokemon = ({ setPokemons }) => {
             cursor="pointer"
           />
           <Input
-            placeholder="Search Pokémon by ID or name"
+            placeholder="Search Pokémon by name or number"
             type="text"
             isInvalid={error}
             errorBorderColor="crimson"
             value={inputValue}
-            onChange={handleInputChange}
+            onChange={(event) => setInputValue(event.target.value)}
           />
         </InputGroup>
       </form>
