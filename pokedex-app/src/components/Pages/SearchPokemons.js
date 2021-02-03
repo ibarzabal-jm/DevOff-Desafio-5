@@ -1,7 +1,10 @@
 import React, { useState } from "react";
-import { Heading, SimpleGrid, Stack } from "@chakra-ui/react";
+import { Heading, SimpleGrid, Stack, IconButton } from "@chakra-ui/react";
 import { AddPokemon } from "../SearchPokemon/AddPokemon";
+import { Link } from "react-router-dom";
+
 import PokemonThumbnail from "../PokemonThumbnail";
+import { ArrowBackIcon } from "@chakra-ui/icons";
 import { useLocation } from "react-router-dom";
 
 const SearchPokemons = () => {
@@ -17,6 +20,18 @@ const SearchPokemons = () => {
       margin={{ base: 0, md: 4 }}
       rounded={{ base: 0, md: 12 }}
     >
+      {pathname === "/search" && (
+        <IconButton
+          colorScheme="teal"
+          aria-label="go home"
+          icon={<ArrowBackIcon />}
+          width={8}
+          height={8}
+          cursor="pointer"
+          as={Link}
+          to="/"
+        />
+      )}
       <Heading textAlign="center" mt={4}>
         What Pokemon are you looking for?
       </Heading>
