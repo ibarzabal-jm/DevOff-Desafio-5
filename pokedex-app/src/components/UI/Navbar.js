@@ -52,6 +52,16 @@ const Navbar = () => {
         <Button
           size="sm"
           color="white"
+          bg="ground"
+          _hover={{ color: "black", opacity: 0.8 }}
+          as={ReachLink}
+          to="/quizz"
+        >
+          Who's that Pokemon?
+        </Button>
+        <Button
+          size="sm"
+          color="white"
           bg="poison"
           _hover={{ color: "black", opacity: 0.8 }}
           as={ReachLink}
