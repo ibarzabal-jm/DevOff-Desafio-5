@@ -3,7 +3,7 @@ import { api } from "../api/api";
 
 export const useFetchGetPokemonID = (id) => {
   const isMounted = useRef(true);
-  const [state, setState] = useState({ data: [], loading: true });
+  const [state, setState] = useState({ pokemon: [], loading: true });
 
   useEffect(() => {
     return () => {
@@ -12,12 +12,14 @@ export const useFetchGetPokemonID = (id) => {
   }, []);
 
   useEffect(() => {
-    api.miniData(id).then((pokeData) =>
-      setState({
-        pokemon: pokeData,
-        loading: false,
-      })
-    );
+    setState({ pokemon: null, loading: true });
+    api.miniData(id).then((pokeData) => {
+      if (isMounted.current)
+        setState({
+          pokemon: pokeData,
+          loading: false,
+        });
+    });
   }, [id]);
   return state;
 };
