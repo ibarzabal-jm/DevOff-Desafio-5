@@ -29,7 +29,7 @@ _Este proyecto se realizó con las siguientes herramientas:_
 ## Agradecimientos :clap:
 
 
-* Gracias a la comunidad de frontendcafé(https://frontend.cafe/). 
+* Gracias a la comunidad de [frontendcafé](https://frontend.cafe/). 
 * Agradecimiento especial a [@goncy](https://github.com/goncy), como mentor es el mejor, ojalá ser como él.  @goncypozzo en [twitch](https://www.twitch.tv/goncypozzo). 
 
 ## Autor ✒️
