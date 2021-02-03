@@ -12,12 +12,14 @@ export const useFetchPokeInfo = (id) => {
   }, []);
 
   useEffect(() => {
-    getPokeInfoByID(id).then((pokeData) =>
-      setState({
-        data: pokeData,
-        loading: false,
-      })
-    );
+    getPokeInfoByID(id).then((pokeData) => {
+      if (isMounted.current) {
+        setState({
+          data: pokeData,
+          loading: false,
+        });
+      }
+    });
   }, [id]);
   return state;
 };
