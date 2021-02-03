@@ -10,7 +10,7 @@ import Pokedex from "../components/Pages/Pokedex";
 import SearchPokemons from "../components/Pages/SearchPokemons";
 import SearchMoves from "../components/Pages/SearchMoves";
 import TypeCombination from "../components/Pages/TypeCombination";
-import { Flex, Grid } from "@chakra-ui/react";
+import { Grid } from "@chakra-ui/react";
 import PokemonQuiz from "../components/Pages/PokemonQuiz";
 
 export const AppRouter = () => {
@@ -26,7 +26,7 @@ export const AppRouter = () => {
 
         <Grid
           justifyItems="stretch"
-          overflowY="scroll"
+          overflowY="auto"
           overflowX="hidden"
           backgroundImage={{
             base: "none",
