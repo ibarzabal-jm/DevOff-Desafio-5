@@ -11,7 +11,7 @@ const PokemonQuiz = () => {
 
   const [min, setMin] = useState(1);
   const [max, setMax] = useState(151);
-  const [random, setRandom] = useState(getRandomNumber(min, max));
+  const [random, setRandom] = useState(null);
 
   const { pokemon, loading } = useFetchGetPokemonID(random);
 

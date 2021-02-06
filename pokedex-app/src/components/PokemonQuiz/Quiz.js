@@ -1,5 +1,15 @@
 import React, { useState, useEffect } from "react";
-import { Stack, Image, Input, Text, Heading, Box } from "@chakra-ui/react";
+import {
+  Stack,
+  Image,
+  Input,
+  Text,
+  Heading,
+  Box,
+  InputGroup,
+  InputRightElement,
+  Button,
+} from "@chakra-ui/react";
 
 const Quiz = ({ pokemon, nextPokemon }) => {
   const [status, setStatus] = useState("GUESSING");
@@ -56,19 +66,51 @@ const Quiz = ({ pokemon, nextPokemon }) => {
           </Box>
         </Stack>
       ) : (
-        <form onSubmit={handleSubmit}>
-          <Input
-            variant="filled"
-            textAlign="center"
-            placeholder="Write the answer"
-            type="text"
-            isInvalid={status === "FAIL"}
-            errorBorderColor="crimson"
-            value={inputName}
-            onChange={(event) => setInputName(event.target.value)}
-          />
-          {status === "FAIL" && <Text textAlign="center">Wrong</Text>}
-        </form>
+        <Stack>
+          <form onSubmit={handleSubmit}>
+            <InputGroup>
+              <Input
+                variant="filled"
+                textAlign="center"
+                placeholder="Write the answer"
+                type="text"
+                isInvalid={status === "FAIL"}
+                errorBorderColor="crimson"
+                value={inputName}
+                onChange={(event) => setInputName(event.target.value)}
+              />
+              <InputRightElement>
+                <Button
+                  color="white"
+                  fontWeight="bold"
+                  borderRadius="md"
+                  bgGradient="linear(to-r, teal.500,green.500)"
+                  _hover={{
+                    bgGradient: "linear(to-r, red.500, yellow.500)",
+                  }}
+                  onClick={handleSubmit}
+                >
+                  Try
+                </Button>
+              </InputRightElement>
+            </InputGroup>
+            {status === "FAIL" && <Text textAlign="center">Wrong</Text>}
+          </form>
+          <Box
+            as="button"
+            p={2}
+            color="white"
+            fontWeight="bold"
+            borderRadius="md"
+            bgGradient="linear(to-r, teal.500,green.500)"
+            _hover={{
+              bgGradient: "linear(to-r, red.500, yellow.500)",
+            }}
+            onClick={nextPokemon}
+          >
+            Next Pokemon
+          </Box>
+        </Stack>
       )}
     </Stack>
   );
