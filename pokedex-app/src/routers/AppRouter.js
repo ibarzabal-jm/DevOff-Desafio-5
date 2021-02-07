@@ -25,7 +25,7 @@ export const AppRouter = () => {
         <Navbar />
 
         <Grid
-          justifyItems="stretch"
+          justifyItems="center"
           overflowY="auto"
           overflowX="hidden"
           backgroundImage={{

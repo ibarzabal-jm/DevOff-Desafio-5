@@ -14,7 +14,7 @@ const SelectLevel = ({ setMin, setMax }) => {
   ];
 
   return (
-    <Stack bg="gray.200" margin={2} padding={4} rounded={22}>
+    <Stack bg="gray.200" padding={3} rounded={22}>
       <Heading
         textAlign="center"
         fontWeight="extrabold"
@@ -37,7 +37,7 @@ const SelectLevel = ({ setMin, setMax }) => {
             size="md"
             bgGradient="linear-gradient(to-r, #3a7bd5, #3a6073);"
             color="white"
-            _hover={{ bgGradient: "linear(to-r, red.500, yellow.500)" }}
+            _hover={{ bgGradient: "linear(to-r, red.500, orange.500)" }}
             onClick={() => {
               setMin(min);
               setMax(max);
@@ -50,7 +50,7 @@ const SelectLevel = ({ setMin, setMax }) => {
           bg="primary"
           color="white"
           _hover={{
-            bgGradient: "linear(to-r, red.500, yellow.500)",
+            bgGradient: "linear(to-r, red.500, orange.500)",
           }}
           onClick={() => {
             setMin(1);

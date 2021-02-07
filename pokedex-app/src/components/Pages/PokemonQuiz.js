@@ -22,8 +22,8 @@ const PokemonQuiz = () => {
   return (
     <Stack
       bg="#fff"
-      padding={4}
-      spacing={3}
+      padding={6}
+      spacing={4}
       margin={{ base: 0, md: 4 }}
       rounded={{ base: 0, md: 12 }}
     >
@@ -47,7 +47,6 @@ const PokemonQuiz = () => {
           nextPokemon={() => setRandom(getRandomNumber(min, max))}
         />
       )}
-
       <SelectLevel setMin={setMin} setMax={setMax} />
     </Stack>
   );

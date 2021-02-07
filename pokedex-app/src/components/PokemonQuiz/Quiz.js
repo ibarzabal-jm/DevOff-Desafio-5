@@ -6,8 +6,6 @@ import {
   Text,
   Heading,
   Box,
-  InputGroup,
-  InputRightElement,
   Button,
 } from "@chakra-ui/react";
 
@@ -30,7 +28,7 @@ const Quiz = ({ pokemon, nextPokemon }) => {
   }, [pokemon]);
 
   return (
-    <Stack alignItems="center">
+    <Stack>
       <Image
         width={350}
         height={350}
@@ -68,48 +66,50 @@ const Quiz = ({ pokemon, nextPokemon }) => {
       ) : (
         <Stack>
           <form onSubmit={handleSubmit}>
-            <InputGroup>
-              <Input
-                variant="filled"
-                textAlign="center"
-                placeholder="Write the answer"
-                type="text"
-                isInvalid={status === "FAIL"}
-                errorBorderColor="crimson"
-                value={inputName}
-                onChange={(event) => setInputName(event.target.value)}
-              />
-              <InputRightElement>
-                <Button
-                  color="white"
-                  fontWeight="bold"
-                  borderRadius="md"
-                  bgGradient="linear(to-r, teal.500,green.500)"
-                  _hover={{
-                    bgGradient: "linear(to-r, red.500, yellow.500)",
-                  }}
-                  onClick={handleSubmit}
-                >
-                  Try
-                </Button>
-              </InputRightElement>
-            </InputGroup>
-            {status === "FAIL" && <Text textAlign="center">Wrong</Text>}
+            <Input
+              variant="filled"
+              textAlign="center"
+              placeholder="Write the answer"
+              type="text"
+              isInvalid={status === "FAIL"}
+              errorBorderColor="crimson"
+              value={inputName}
+              onChange={(event) => setInputName(event.target.value)}
+            />
+            {status === "FAIL" && (
+              <Text color="primary" textAlign="center">
+                Wrong Answer
+              </Text>
+            )}
           </form>
-          <Box
-            as="button"
-            p={2}
-            color="white"
-            fontWeight="bold"
-            borderRadius="md"
-            bgGradient="linear(to-r, teal.500,green.500)"
-            _hover={{
-              bgGradient: "linear(to-r, red.500, yellow.500)",
-            }}
-            onClick={nextPokemon}
-          >
-            Next Pokemon
-          </Box>
+          <Stack>
+            <Button
+              p={2}
+              color="white"
+              fontWeight="bold"
+              borderRadius="md"
+              bgGradient="linear(to-r, teal.500,green.500)"
+              _hover={{
+                bgGradient: "linear(to-r,  teal.500,teal.700)",
+              }}
+              onClick={handleSubmit}
+            >
+              Try
+            </Button>
+            <Button
+              p={2}
+              color="white"
+              fontWeight="bold"
+              borderRadius="md"
+              bgGradient="linear(to-r, red.500,yellow.500)"
+              _hover={{
+                bgGradient: "linear(to-r, red.500, orange.500)",
+              }}
+              onClick={nextPokemon}
+            >
+              Next
+            </Button>
+          </Stack>
         </Stack>
       )}
     </Stack>
