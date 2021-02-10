@@ -44,7 +44,7 @@ const Quiz = ({ pokemon, nextPokemon }) => {
       />
       {status === "SUCCESS" ? (
         <Stack>
-          <Heading textTransform="capitalize" size="4xl">
+          <Heading textTransform="capitalize" size="4xl" textAlign="center">
             {pokemon.name}
           </Heading>
           <Text textAlign="center">{counter} Attempts</Text>
@@ -82,7 +82,21 @@ const Quiz = ({ pokemon, nextPokemon }) => {
               </Text>
             )}
           </form>
-          <Stack>
+          <Stack isInline>
+            <Button
+              p={2}
+              color="white"
+              fontWeight="bold"
+              borderRadius="md"
+              bgGradient="linear(to-r, red.400,red.600)"
+              _hover={{
+                bgGradient: "linear(to-r, red.500, yellow.500)",
+              }}
+              onClick={nextPokemon}
+              width="50%"
+            >
+              Next
+            </Button>
             <Button
               p={2}
               color="white"
@@ -93,21 +107,9 @@ const Quiz = ({ pokemon, nextPokemon }) => {
                 bgGradient: "linear(to-r,  teal.500,teal.700)",
               }}
               onClick={handleSubmit}
+              width="50%"
             >
               Try
-            </Button>
-            <Button
-              p={2}
-              color="white"
-              fontWeight="bold"
-              borderRadius="md"
-              bgGradient="linear(to-r, red.500,yellow.500)"
-              _hover={{
-                bgGradient: "linear(to-r, red.500, orange.500)",
-              }}
-              onClick={nextPokemon}
-            >
-              Next
             </Button>
           </Stack>
         </Stack>
