@@ -22,7 +22,7 @@ const AddMoves = ({ setMoves }) => {
 
     const moveName = inputValue.replace(/ /g, "-").toLowerCase();
 
-    if (moveName.length > 2) {
+    if (moveName.length > 1) {
       await getMoveByName(moveName)
         .then((move) => {
           setLoading(false);
