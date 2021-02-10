@@ -42,87 +42,31 @@ const CombinationContainer = () => {
       borderRadius={8}
       direction="row"
       justify="center"
-      margin={{ base: 3, md: 10 }}
-      padding={{ base: 0, md: 4 }}
-      spacing={40}
+      margin={{ base: 3, md: 5 }}
+      padding={{ base: 0, md: 1 }}
       wrap="wrap"
     >
       <Stack w={{ base: "100%", md: "50%" }} spacing={4}>
-        <Stack spacing={2} alignItems="center">
-          <Heading textAlign="center">Choose 1° Type</Heading>
-          <Flex direction="row" wrap="wrap" justifyContent="center">
-            {types.map((type) => (
-              <Tag
-                bg={type}
-                cursor="pointer"
-                key={type}
-                margin="8px"
-                rounded={999}
-                maxW="100px"
-                w="32%"
-                onClick={() =>
-                  type !== secondType
-                    ? setFirstType(type)
-                    : (setSecondType(null), setFirstType(type))
-                }
-              >
-                <Image
-                  opacity={type !== firstType && "0.2"}
-                  maxWidth="100px"
-                  width={4}
-                  src="../assets/ui/pokeball.svg"
-                  ml={-1}
-                  mr={3}
-                />
-                <TagLabel textTransform="capitalize" fontWeight="bold">
-                  {type}
-                </TagLabel>
-              </Tag>
-            ))}
-          </Flex>
-        </Stack>
-        <Stack spacing={2} alignItems="center">
-          <Heading textAlign="center">Choose 2° Type</Heading>
-          <Flex direction="row" wrap="wrap" justifyContent="center">
-            {types.map((type) => (
-              <Tag
-                bg={type}
-                cursor="pointer"
-                key={type}
-                margin="8px"
-                rounded={999}
-                maxW="100px"
-                w="32%"
-                onClick={() =>
-                  type !== firstType ? setSecondType(type) : setSecondType(null)
-                }
-              >
-                <Image
-                  opacity={type !== secondType && "0.2"}
-                  maxWidth="100px"
-                  width={4}
-                  src="../assets/ui/pokeball.svg"
-                  ml={-1}
-                  mr={3}
-                />
-                <TagLabel textTransform="capitalize" fontWeight="bold">
-                  {type}
-                </TagLabel>
-              </Tag>
-            ))}
-
+        <Heading textAlign="center">Choose Types</Heading>
+        <Flex direction="row" wrap="wrap" justifyContent="center">
+          {types.map((type) => (
             <Tag
-              bg="grey"
+              bg={type}
               cursor="pointer"
-              key="none"
-              margin="8px"
+              key={type}
+              margin={{ base: "3px", sm: "5px", md: "8px" }}
               rounded={999}
               maxW="100px"
-              w="33%"
-              onClick={() => setSecondType(null)}
+              w="32%"
+              onClick={() =>
+                type !== firstType
+                  ? setSecondType(type)
+                  : secondType !== null &&
+                    (setFirstType(secondType), setSecondType(null))
+              }
             >
               <Image
-                opacity={null !== secondType && "0.2"}
+                opacity={secondType !== type && firstType !== type && "0.1"}
                 maxWidth="100px"
                 width={4}
                 src="../assets/ui/pokeball.svg"
@@ -130,11 +74,33 @@ const CombinationContainer = () => {
                 mr={3}
               />
               <TagLabel textTransform="capitalize" fontWeight="bold">
-                None
+                {type}
               </TagLabel>
             </Tag>
-          </Flex>
-        </Stack>
+          ))}
+          <Tag
+            bg="grey"
+            cursor="pointer"
+            key="none"
+            margin="8px"
+            rounded={999}
+            maxW="100px"
+            w="33%"
+            onClick={() => setSecondType(null)}
+          >
+            <Image
+              opacity={null !== secondType && "0.1"}
+              maxWidth="100px"
+              width={4}
+              src="../assets/ui/pokeball.svg"
+              ml={-1}
+              mr={3}
+            />
+            <TagLabel textTransform="capitalize" fontWeight="bold">
+              None
+            </TagLabel>
+          </Tag>
+        </Flex>
       </Stack>
       <Box
         marginTop={{ base: "4rem", md: "0px" }}
