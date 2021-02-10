@@ -1,7 +1,7 @@
 import React from "react";
 import { Button, Heading, SimpleGrid, Stack } from "@chakra-ui/react";
 
-const SelectLevel = ({ setMin, setMax }) => {
+const SelectLevel = ({ setGeneration, generation }) => {
   const pagesGenerations = [
     { name: "I", min: 1, max: 151 },
     { name: "II", min: 152, max: 251 },
@@ -11,6 +11,7 @@ const SelectLevel = ({ setMin, setMax }) => {
     { name: "VI", min: 650, max: 721 },
     { name: "VII", min: 722, max: 809 },
     { name: "VIII", min: 810, max: 897 },
+    { name: "All Gens", min: 1, max: 897 },
   ];
 
   return (
@@ -21,7 +22,6 @@ const SelectLevel = ({ setMin, setMax }) => {
         bgGradient="linear(to-l, #7928CA,#FF0080)"
         bgClip="text"
       >
-        {" "}
         Select Generation
       </Heading>
       <SimpleGrid
@@ -31,34 +31,22 @@ const SelectLevel = ({ setMin, setMax }) => {
         bg="gray.200"
         padding={2}
       >
-        {pagesGenerations.map(({ name, min, max }) => (
+        {pagesGenerations.map((gen) => (
           <Button
-            key={name}
+            key={gen.name}
             size="md"
-            bgGradient="linear-gradient(to-r, #3a7bd5, #3a6073);"
+            bgGradient={
+              gen.name !== generation.name
+                ? "linear-gradient(to-r, #3a7bd5, #3a6073)"
+                : "linear-gradient(to-r, crimson, crimson)"
+            }
             color="white"
             _hover={{ bgGradient: "linear(to-r, red.500, orange.500)" }}
-            onClick={() => {
-              setMin(min);
-              setMax(max);
-            }}
+            onClick={() => setGeneration(gen)}
           >
-            {name}
+            {gen.name}
           </Button>
         ))}
-        <Button
-          bg="primary"
-          color="white"
-          _hover={{
-            bgGradient: "linear(to-r, red.500, orange.500)",
-          }}
-          onClick={() => {
-            setMin(1);
-            setMax(897);
-          }}
-        >
-          All Gens
-        </Button>
       </SimpleGrid>
     </Stack>
   );
