@@ -9,15 +9,14 @@ const PokemonQuiz = () => {
     return Math.floor(Math.random() * (max - min + 1)) + min;
   };
 
-  const [min, setMin] = useState(1);
-  const [max, setMax] = useState(151);
   const [random, setRandom] = useState(null);
+  const [generation, setGeneration] = useState({ name: "I", min: 1, max: 151 });
 
   const { pokemon, loading } = useFetchGetPokemonID(random);
 
   useEffect(() => {
-    setRandom(getRandomNumber(min, max));
-  }, [min, max]);
+    setRandom(getRandomNumber(generation.min, generation.max));
+  }, [generation]);
 
   return (
     <Stack
@@ -44,10 +43,12 @@ const PokemonQuiz = () => {
       ) : (
         <Quiz
           pokemon={pokemon}
-          nextPokemon={() => setRandom(getRandomNumber(min, max))}
+          nextPokemon={() =>
+            setRandom(getRandomNumber(generation.min, generation.max))
+          }
         />
       )}
-      <SelectLevel setMin={setMin} setMax={setMax} />
+      <SelectLevel setGeneration={setGeneration} generation={generation} />
     </Stack>
   );
 };
