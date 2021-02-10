@@ -27,6 +27,7 @@ const NavButtons = () => {
       >
         <Text color="white">Pokédex</Text>
         <Image
+          alt="pokeball"
           marginRight={-7}
           opacity="0.2"
           src="../assets/ui/pokeball.svg"
@@ -49,6 +50,7 @@ const NavButtons = () => {
       >
         <Text color="white">Search Moves</Text>
         <Image
+          alt="pokeball"
           marginRight={-7}
           opacity="0.2"
           src="../assets/ui/pokeball.svg"
@@ -71,6 +73,7 @@ const NavButtons = () => {
       >
         <Text color="white">Search Pokemon</Text>
         <Image
+          alt="pokeball"
           marginRight={-7}
           opacity="0.2"
           src="../assets/ui/pokeball.svg"
@@ -93,6 +96,7 @@ const NavButtons = () => {
       >
         <Text color="white">Who's that pokemon?</Text>
         <Image
+          alt="pokeball"
           marginRight={-7}
           opacity={0.2}
           src="../assets/ui/pokeball.svg"
@@ -115,6 +119,7 @@ const NavButtons = () => {
       >
         <Text color="white">Types Weaks</Text>
         <Image
+          alt="pokeball"
           marginRight={-7}
           opacity={0.2}
           src="../assets/ui/pokeball.svg"
@@ -139,6 +144,7 @@ const NavButtons = () => {
       >
         <Text color="white">About Me</Text>
         <Image
+          alt="pokeball"
           marginRight={-7}
           opacity={0.2}
           src="../assets/ui/pokeball.svg"
