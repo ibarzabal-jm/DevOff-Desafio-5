@@ -35,7 +35,12 @@ const PokemonThumbnail = ({ pokemon }) => {
             </Text>
           ))}
         </Stack>
-        <Image maxWidth="100px" width={20} src={pokemon.image}></Image>
+        <Image
+          maxWidth="100px"
+          width={20}
+          alt={pokemon.name}
+          src={pokemon.image}
+        ></Image>
       </Stack>
       {drawer && (
         <PokemonDrawer pokemon={pokemon} onClose={() => setDrawer(false)} />
