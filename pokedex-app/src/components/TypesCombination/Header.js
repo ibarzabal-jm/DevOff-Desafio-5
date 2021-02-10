@@ -1,19 +1,13 @@
 import React from "react";
-import { Heading, Stack, Text } from "@chakra-ui/react";
+import { Heading, Stack } from "@chakra-ui/react";
 
 const Header = () => {
   return (
-    <Stack bg="blue.300">
-      <Stack bg="red.600">
-        <Heading textColor="white" textAlign="center" padding={3}>
-          Pokémon Type Calculator
-        </Heading>
-      </Stack>
-      <Stack borderBottom="3px solid" padding={1}>
-        <Text textAlign="center" color="white">
-          Choose Types and Calculate Weaknesses
-        </Text>
-      </Stack>
+    <Stack margin={{ base: 3, md: 5 }} padding={{ base: 0, md: 1 }}>
+      <Heading as="h3">Pokémon Type Calculator</Heading>
+      <Heading size="sm" as="h6" fontWeight="normal" color="gray.500">
+        Choose Types and Calculate Weaknesses
+      </Heading>
     </Stack>
   );
 };
