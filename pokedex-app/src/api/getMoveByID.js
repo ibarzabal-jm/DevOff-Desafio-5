@@ -1,5 +1,5 @@
 export const getMoveByID = async (id) => {
-  const moveURL = `https://pokeapi.co/api/v2/move/${id}`;
+  const moveURL = `https://pokeapi.co/api/v2/move/${id}/`;
 
   const resp = await fetch(moveURL);
 
