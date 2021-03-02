@@ -1,7 +1,7 @@
 import React from "react";
-import Header from "../TypesCombination/Header";
+import { Heading, Stack } from "@chakra-ui/react";
+import GoHomeButton from "../UI/GoHomeButton";
 import CombinationContainer from "../TypesCombination/CombinationContainer";
-import { Stack } from "@chakra-ui/react";
 
 const TypeCombinationPage = () => {
   return (
@@ -13,7 +13,14 @@ const TypeCombinationPage = () => {
       rounded={30}
       spacing={3}
     >
-      <Header />
+      <GoHomeButton componentPathName="/combination" />
+
+      <Stack spacing={0}>
+        <Heading>Pokémon Type Calculator</Heading>
+        <Heading size="sm" as="h6" fontWeight="normal" color="gray.500">
+          Choose Types and Calculate Weaknesses
+        </Heading>
+      </Stack>
       <CombinationContainer />
     </Stack>
   );
