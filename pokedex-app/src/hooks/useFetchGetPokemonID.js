@@ -12,14 +12,16 @@ export const useFetchGetPokemonID = (id) => {
   }, []);
 
   useEffect(() => {
-    setState({ pokemon: null, loading: true });
-    api.miniData(id).then((pokeData) => {
-      if (isMounted.current)
-        setState({
-          pokemon: pokeData,
-          loading: false,
-        });
-    });
+    if (id !== null) {
+      setState({ pokemon: null, loading: true });
+      api.miniData(id).then((pokeData) => {
+        if (isMounted.current)
+          setState({
+            pokemon: pokeData,
+            loading: false,
+          });
+      });
+    }
   }, [id]);
   return state;
 };
