@@ -1,3 +1,5 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/67fd2490-9e42-4e32-bf82-39e1fbae41f7/deploy-status)](https://app.netlify.com/sites/juanma-pokedex/deploys)
+
 # JuanmaPokedex
  Pokedex hecho con React Chakra UI (primera vez que lo utilizo) y PokeApi para la data pokemon.
  
