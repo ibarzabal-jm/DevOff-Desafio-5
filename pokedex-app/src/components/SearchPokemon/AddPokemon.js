@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import {
+  Stack,
   Input,
   InputGroup,
   InputLeftElement,
@@ -35,7 +36,7 @@ export const AddPokemon = ({ setPokemons }) => {
   };
 
   return (
-    <>
+    <Stack width="100%">
       <form onSubmit={handleSubmit}>
         <InputGroup variant="filled">
           <InputLeftElement
@@ -56,6 +57,7 @@ export const AddPokemon = ({ setPokemons }) => {
       {error && <Text textColor="crimson">{error}</Text>}
       {loading && (
         <Spinner
+          alignSelf="center"
           thickness="4px"
           speed="0.65s"
           emptyColor="blue.200"
@@ -63,7 +65,7 @@ export const AddPokemon = ({ setPokemons }) => {
           size="xl"
         />
       )}
-    </>
+    </Stack>
   );
 };
 

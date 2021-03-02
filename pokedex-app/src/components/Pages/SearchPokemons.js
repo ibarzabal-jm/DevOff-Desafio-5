@@ -3,46 +3,32 @@ import { Heading, SimpleGrid, Stack } from "@chakra-ui/react";
 import { AddPokemon } from "../SearchPokemon/AddPokemon";
 
 import PokemonThumbnail from "../PokemonThumbnail";
-import { ArrowBackIcon } from "@chakra-ui/icons";
-import { useLocation } from "react-router-dom";
-import { useHistory } from "react-router-dom";
+import GoHomeButton from "../UI/GoHomeButton";
 
 const SearchPokemons = () => {
   const [pokemons, setPokemons] = useState([]);
 
-  const { pathname } = useLocation();
-  const history = useHistory();
-
   return (
     <Stack
-      bg="#fff"
-      padding={4}
+      alignContent="center"
+      bg="white"
+      margin={{ base: 0, sm: 1, md: 4 }}
+      padding={{ base: 0, md: 4 }}
+      rounded={30}
       spacing={3}
-      margin={{ base: 0, md: 4 }}
-      rounded={{ base: 0, md: 12 }}
     >
-      {pathname === "/search" && (
-        <ArrowBackIcon
-          aria-label="go home"
-          width={{ base: 6, md: 8 }}
-          height={{ base: 6, md: 8 }}
-          cursor="pointer"
-          as="button"
-          onClick={() => {
-            history.goBack();
-          }}
-        />
-      )}
+      <GoHomeButton componentPathName={"/search"} />
+
       <Heading textAlign="center" mt={4}>
-        What Pokemon are you looking for?
+        What Pokémon are you looking for?
       </Heading>
       <AddPokemon setPokemons={setPokemons} />
       {pokemons.length > 0 && (
         <SimpleGrid
           columns={2}
-          gap={3}
-          borderRadius={20}
+          gap={2}
           bg="gray.200"
+          borderRadius={20}
           padding={2}
         >
           {pokemons.map((pokemon, id) => (

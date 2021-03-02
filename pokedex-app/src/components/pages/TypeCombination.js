@@ -1,14 +1,21 @@
 import React from "react";
 import Header from "../TypesCombination/Header";
 import CombinationContainer from "../TypesCombination/CombinationContainer";
-import { Box } from "@chakra-ui/react";
+import { Stack } from "@chakra-ui/react";
 
 const TypeCombinationPage = () => {
   return (
-    <Box bg="#fff" margin={{ base: 0, md: 4 }} padding={1} rounded={20}>
+    <Stack
+      alignContent="center"
+      bg="white"
+      margin={{ base: 0, sm: 1, md: 4 }}
+      padding={{ base: 0, md: 4 }}
+      rounded={30}
+      spacing={3}
+    >
       <Header />
       <CombinationContainer />
-    </Box>
+    </Stack>
   );
 };
 

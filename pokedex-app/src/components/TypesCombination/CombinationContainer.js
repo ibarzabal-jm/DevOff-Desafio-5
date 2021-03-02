@@ -1,14 +1,7 @@
 import React, { useState } from "react";
-import {
-  Box,
-  Flex,
-  Stack,
-  Heading,
-  Image,
-  Tag,
-  TagLabel,
-} from "@chakra-ui/react";
-import ResultsCombination from "./ResultsCombination";
+import { Stack, Heading, Flex } from "@chakra-ui/react";
+import Results from "./Results";
+import TypeButton from "./TypeButton";
 
 const CombinationContainer = () => {
   const types = [
@@ -35,84 +28,72 @@ const CombinationContainer = () => {
   const [firstType, setFirstType] = useState("bug");
   const [secondType, setSecondType] = useState(null);
 
+  const handleChangeFirstType = (type) => {
+    if (type !== secondType) {
+      setFirstType(type);
+    } else {
+      setFirstType(type);
+      setSecondType(null);
+    }
+  };
+
+  const handleChangeSecondType = (type) => {
+    if (type !== firstType) {
+      setSecondType(type);
+    } else {
+      setFirstType(type);
+      setSecondType(null);
+    }
+  };
+
   return (
-    <Flex
-      alignItems="center"
+    <Stack
       bg="gray.100"
-      borderRadius={8}
-      direction="row"
+      borderRadius={20}
+      align="center"
+      alignItems="center"
       justify="center"
-      margin={{ base: 3, md: 5 }}
-      padding={{ base: 0, md: 1 }}
-      wrap="wrap"
+      spacing={2}
+      paddingY={2}
     >
-      <Stack w={{ base: "100%", md: "50%" }} spacing={4}>
-        <Heading textAlign="center">Choose Types</Heading>
-        <Flex direction="row" wrap="wrap" justifyContent="center">
-          {types.map((type) => (
-            <Tag
-              bg={type}
-              cursor="pointer"
-              key={type}
-              margin={{ base: "3px", sm: "5px", md: "8px" }}
-              rounded={999}
-              maxW="100px"
-              w="32%"
-              onClick={() =>
-                type !== firstType
-                  ? setSecondType(type)
-                  : secondType !== null &&
-                    (setFirstType(secondType), setSecondType(null))
-              }
-            >
-              <Image
-                opacity={secondType !== type && firstType !== type && "0.1"}
-                maxWidth="100px"
-                width={4}
-                src="../assets/ui/pokeball.svg"
-                ml={-1}
-                mr={3}
+      <Stack direction={{ base: "column", md: "row" }} spacing={2}>
+        <Stack>
+          <Heading textAlign="center">Choose First</Heading>
+          <Flex direction="row" wrap="wrap" justifyContent="center">
+            {types.map((type) => (
+              <TypeButton
+                changeSelectedType={handleChangeFirstType}
+                key={type}
+                selectedType={firstType}
+                type={type}
               />
-              <TagLabel textTransform="capitalize" fontWeight="bold">
-                {type}
-              </TagLabel>
-            </Tag>
-          ))}
-          <Tag
-            bg="grey"
-            cursor="pointer"
-            key="none"
-            margin="8px"
-            rounded={999}
-            maxW="100px"
-            w="33%"
-            onClick={() => setSecondType(null)}
-          >
-            <Image
-              opacity={null !== secondType && "0.1"}
-              maxWidth="100px"
-              width={4}
-              src="../assets/ui/pokeball.svg"
-              ml={-1}
-              mr={3}
+            ))}
+          </Flex>
+        </Stack>
+
+        <Stack>
+          <Heading textAlign="center">Choose Second</Heading>
+          <Flex direction="row" wrap="wrap" justifyContent="center">
+            {types.map((type) => (
+              <TypeButton
+                changeSelectedType={handleChangeSecondType}
+                key={type}
+                selectedType={secondType}
+                type={type}
+              />
+            ))}
+            <TypeButton
+              changeSelectedType={handleChangeSecondType}
+              type={null}
+              key={"null"}
+              selectedType={secondType}
             />
-            <TagLabel textTransform="capitalize" fontWeight="bold">
-              None
-            </TagLabel>
-          </Tag>
-        </Flex>
+          </Flex>
+        </Stack>
       </Stack>
-      <Box
-        marginTop={{ base: "4rem", md: "0px" }}
-        w={{ base: "100%", md: "50%" }}
-      >
-        <ResultsCombination
-          w={{ base: "100%", md: "50%" }}
-          firstType={firstType}
-          secondType={secondType}
-        />
-      </Box>
-    </Flex>
+
+      <Results firstType={firstType} secondType={secondType} />
+    </Stack>
   );
 };
 

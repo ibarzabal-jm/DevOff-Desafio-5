@@ -11,20 +11,21 @@ const PokemonQuiz = () => {
 
   const [random, setRandom] = useState(null);
   const [generation, setGeneration] = useState({ name: "I", min: 1, max: 151 });
-
   const { pokemon, loading } = useFetchGetPokemonID(random);
 
   useEffect(() => {
-    setRandom(getRandomNumber(generation.min, generation.max));
+    const idRandom = getRandomNumber(generation.min, generation.max);
+    setRandom(idRandom);
   }, [generation]);
 
   return (
     <Stack
-      bg="#fff"
-      padding={6}
-      spacing={4}
-      margin={{ base: 0, md: 4 }}
-      rounded={{ base: 0, md: 12 }}
+      alignContent="center"
+      bg="white"
+      margin={{ base: 0, sm: 1, md: 4 }}
+      padding={{ base: 0, md: 4 }}
+      rounded={30}
+      spacing={3}
     >
       <Heading textAlign="center" mt={4}>
         Who's that Pokémon?

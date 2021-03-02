@@ -28,19 +28,20 @@ const Quiz = ({ pokemon, nextPokemon }) => {
   }, [pokemon]);
 
   return (
-    <Stack>
+    <Stack justify="center">
       <Image
-        width={350}
-        height={350}
+        alignSelf="center"
         alt="pokemon"
+        className={status === "SUCCESS" && "animate__animated animate__shakeX"}
+        height={350}
         draggable="false"
         style={{
-          imageRendering: "pixelated",
+          imageRendering: `${status === "SUCCESS" ? "auto" : "pixelated"}`,
           filter: `brightness(${status === "SUCCESS" ? 1 : 0})`,
           transition: `${status === "SUCCESS" ? "filter 0.7s" : "fliter 0s"}`,
         }}
         src={pokemon.image}
-        className={status === "SUCCESS" && "animate__animated animate__shakeX"}
+        width={350}
       />
       {status === "SUCCESS" ? (
         <Stack>

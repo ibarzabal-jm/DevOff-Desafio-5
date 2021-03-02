@@ -5,6 +5,7 @@ import { SimpleGrid, Heading, Stack, Button, Spinner } from "@chakra-ui/react";
 
 import PokemonThumbnail from "../PokemonThumbnail";
 import { useFetchPokedex } from "../../hooks/useFetchPokedex";
+import GoHomeButton from "../UI/GoHomeButton";
 
 const Pokedex = () => {
   const [page, setPage] = useState(0);
@@ -27,19 +28,21 @@ const Pokedex = () => {
 
   return (
     <Stack
+      align="center"
       bg="gray.200"
-      margin={{ base: 0, md: 4 }}
-      padding={{ base: 1, md: 4 }}
+      paddingX={{ base: 0, sm: 1, md: 4 }}
+      paddingY={{ base: 0, md: 3 }}
       rounded={20}
-      spacing={3}
+      spacing={2}
+      paddingBottom={2}
     >
+      <GoHomeButton componentPathName="/pokedex" />
       <Heading fontSize="4xl" alignSelf="flex-start">
         Pokedex
       </Heading>
 
       {loading ? (
         <Spinner
-          alignSelf="center"
           thickness="4px"
           speed="0.5s"
           emptyColor="gray.200"
@@ -47,7 +50,7 @@ const Pokedex = () => {
           size="xl"
         />
       ) : (
-        <SimpleGrid gap={3} columns={2}>
+        <SimpleGrid gap={3} columns={2} w="100%">
           {pokemons?.map((pokemon, index) => (
             <motion.div
               animate="visible"
