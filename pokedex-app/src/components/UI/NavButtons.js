@@ -3,129 +3,62 @@ import { Stack, SimpleGrid, Text, Image } from "@chakra-ui/react";
 import { Link as ReachLink } from "react-router-dom";
 
 const NavButtons = () => {
+  const navButtonsArray = [
+    {
+      name: "Pokédex",
+      bgColor: "grass",
+      route: "/pokedex",
+    },
+    {
+      name: "Search Moves",
+      bgColor: "fire",
+      route: "/moves",
+    },
+    {
+      name: "Search Pokémon",
+      bgColor: "water",
+      route: "/search",
+    },
+    {
+      name: "Who's that Pokémon?",
+      bgColor: "ground",
+      route: "/quiz",
+    },
+    {
+      name: "Types Weaks?",
+      bgColor: "poison",
+      route: "/combination",
+    },
+  ];
   return (
-    <SimpleGrid
-      bg="#fff"
-      columns={2}
-      gap={3}
-      margin={{ base: 0, md: 4 }}
-      padding={4}
-    >
-      <Stack
-        align="center"
-        bg="grass"
-        borderRadius={20}
-        boxShadow="0px 5px  3px #ccc"
-        height={16}
-        isInline
-        justifyContent="space-between"
-        overflow="hidden"
-        padding={3}
-        _hover={{ opacity: 0.8 }}
-        as={ReachLink}
-        to="/pokedex"
-      >
-        <Text color="white">Pokédex</Text>
-        <Image
-          alt="pokeball"
-          marginRight={-7}
-          opacity="0.2"
-          src="../assets/ui/pokeball.svg"
-          width={20}
-        />
-      </Stack>
-      <Stack
-        align="center"
-        bg="fire"
-        borderRadius={20}
-        boxShadow="0px 5px  3px #ccc"
-        height={16}
-        overflow="hidden"
-        isInline
-        justifyContent="space-between"
-        padding={3}
-        _hover={{ opacity: 0.8 }}
-        as={ReachLink}
-        to="/moves"
-      >
-        <Text color="white">Search Moves</Text>
-        <Image
-          alt="pokeball"
-          marginRight={-7}
-          opacity="0.2"
-          src="../assets/ui/pokeball.svg"
-          width={20}
-        />
-      </Stack>
-      <Stack
-        align="center"
-        bg="water"
-        borderRadius={20}
-        boxShadow="0px 5px  3px #ccc"
-        height={16}
-        overflow="hidden"
-        isInline
-        justifyContent="space-between"
-        padding={3}
-        _hover={{ opacity: 0.8 }}
-        as={ReachLink}
-        to="/search"
-      >
-        <Text color="white">Search Pokemon</Text>
-        <Image
-          alt="pokeball"
-          marginRight={-7}
-          opacity="0.2"
-          src="../assets/ui/pokeball.svg"
-          width={20}
-        />
-      </Stack>
-      <Stack
-        align="center"
-        bg="ground"
-        borderRadius={20}
-        boxShadow="0px 5px  3px #ccc"
-        height={16}
-        overflow="hidden"
-        isInline
-        justifyContent="space-between"
-        padding={3}
-        _hover={{ opacity: 0.8 }}
-        as={ReachLink}
-        to="/quiz"
-      >
-        <Text color="white">Who's that pokemon?</Text>
-        <Image
-          alt="pokeball"
-          marginRight={-7}
-          opacity={0.2}
-          src="../assets/ui/pokeball.svg"
-          width={20}
-        />
-      </Stack>
-      <Stack
-        align="center"
-        bg="poison"
-        borderRadius={20}
-        boxShadow="0px 5px  3px #ccc"
-        height={16}
-        overflow="hidden"
-        isInline
-        justifyContent="space-between"
-        padding={3}
-        _hover={{ opacity: 0.8 }}
-        as={ReachLink}
-        to="/combination"
-      >
-        <Text color="white">Types Weaks</Text>
-        <Image
-          alt="pokeball"
-          marginRight={-7}
-          opacity={0.2}
-          src="../assets/ui/pokeball.svg"
-          width={20}
-        />
-      </Stack>
+    <SimpleGrid bg="#fff" columns={2} gap={3} paddingX={4}>
+      {navButtonsArray.map((navButton) => (
+        <Stack
+          align="center"
+          as={ReachLink}
+          bg={navButton.bgColor}
+          borderRadius={20}
+          boxShadow="0px 5px  3px #ccc"
+          height={16}
+          isInline
+          justifyContent="space-between"
+          key={navButton.name}
+          overflow="hidden"
+          padding={3}
+          _hover={{ opacity: 0.8 }}
+          to={navButton.route}
+        >
+          <Text color="white">{navButton.name}</Text>
+          <Image
+            alt="pokeball"
+            marginRight={-7}
+            opacity="0.2"
+            src="../assets/ui/pokeball.svg"
+            width={20}
+          />
+        </Stack>
+      ))}
+
       <Stack
         align="center"
         bg="fighting"
