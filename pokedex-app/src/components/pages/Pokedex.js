@@ -5,7 +5,7 @@ import { SimpleGrid, Heading, Stack, Button, Spinner } from "@chakra-ui/react";
 
 import PokemonThumbnail from "../PokemonThumbnail";
 import { useFetchPokedex } from "../../hooks/useFetchPokedex";
-import GoHomeButton from "../UI/GoHomeButton";
+import ToolBarPages from "../UI/ToolBarPages";
 
 const Pokedex = () => {
   const [page, setPage] = useState(0);
@@ -28,21 +28,22 @@ const Pokedex = () => {
 
   return (
     <Stack
-      align="center"
+      alignContent="center"
       bg="gray.200"
-      paddingX={{ base: 0, sm: 1, md: 4 }}
+      paddingX={{ base: 1, sm: 2, md: 4 }}
       paddingY={{ base: 0, md: 3 }}
+      paddingBottom={2}
       rounded={20}
       spacing={2}
-      paddingBottom={2}
     >
-      <GoHomeButton componentPathName="/pokedex" />
+      <ToolBarPages />
       <Heading fontSize="4xl" alignSelf="flex-start">
         Pokedex
       </Heading>
 
       {loading ? (
         <Spinner
+          alignSelf="center"
           thickness="4px"
           speed="0.5s"
           emptyColor="gray.200"
@@ -79,7 +80,7 @@ const Pokedex = () => {
             bg="primary"
             color="white"
             _hover={{
-              bgGradient: "linear(to-r, red.500, yellow.500)",
+              bg: "primary",
             }}
             onClick={() => setPage(page - 1)}
           >
@@ -94,7 +95,7 @@ const Pokedex = () => {
             onClick={() => setPage(page)}
             bg="secondary"
             color="white"
-            _hover={{ background: "crimson" }}
+            _hover={{ bg: "primary" }}
           >
             {name}
           </Button>
@@ -104,7 +105,7 @@ const Pokedex = () => {
             bg="primary"
             color="white"
             _hover={{
-              bgGradient: "linear(to-r, red.500, yellow.500)",
+              bg: "primary",
             }}
             onClick={() => setPage(page + 1)}
           >

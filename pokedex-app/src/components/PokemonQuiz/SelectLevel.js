@@ -41,7 +41,7 @@ const SelectLevel = ({ setGeneration, generation }) => {
                 : "linear-gradient(to-r, crimson, crimson)"
             }
             color="white"
-            _hover={{ bgGradient: "linear(to-r, red.500, orange.500)" }}
+            _hover={{ bgGradient: "linear-gradient(to-r, crimson, crimson)" }}
             onClick={() => setGeneration(gen)}
           >
             {gen.name}
