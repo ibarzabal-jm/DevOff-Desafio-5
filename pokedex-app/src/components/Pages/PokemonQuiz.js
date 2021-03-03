@@ -3,7 +3,7 @@ import { Heading, Stack, Spinner } from "@chakra-ui/react";
 import { useFetchGetPokemonID } from "../../hooks/useFetchGetPokemonID";
 import Quiz from "../PokemonQuiz/Quiz";
 import SelectLevel from "../PokemonQuiz/SelectLevel";
-import GoHomeButton from "../UI/GoHomeButton";
+import ToolBarPages from "../UI/ToolBarPages";
 
 const PokemonQuiz = () => {
   const getRandomNumber = (min, max) => {
@@ -23,12 +23,11 @@ const PokemonQuiz = () => {
     <Stack
       alignContent="center"
       bg="white"
-      margin={{ base: 0, sm: 1, md: 4 }}
       padding={{ base: 0, md: 4 }}
       rounded={30}
       spacing={3}
     >
-      <GoHomeButton componentPathName="/quiz" />
+      <ToolBarPages />
 
       <Heading textAlign="center" mt={4}>
         Who's that Pokémon?
