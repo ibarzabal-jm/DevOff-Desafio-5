@@ -58,7 +58,9 @@ const CombinationContainer = () => {
     >
       <Stack direction={{ base: "column", md: "row" }} spacing={2}>
         <Stack>
-          <Heading textAlign="center">Choose First</Heading>
+          <Heading fontSize="lg" textAlign="center">
+            Primary Type
+          </Heading>
           <Flex direction="row" wrap="wrap" justifyContent="center">
             {types.map((type) => (
               <TypeButton
@@ -72,7 +74,9 @@ const CombinationContainer = () => {
         </Stack>
 
         <Stack>
-          <Heading textAlign="center">Choose Second</Heading>
+          <Heading fontSize="lg" textAlign="center">
+            Secondary Type
+          </Heading>
           <Flex direction="row" wrap="wrap" justifyContent="center">
             {types.map((type) => (
               <TypeButton
