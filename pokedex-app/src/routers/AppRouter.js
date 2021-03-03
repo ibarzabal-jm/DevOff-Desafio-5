@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Switch, Route } from "react-router-dom";
+import { Switch, Route, Redirect } from "react-router-dom";
 
 import Landing from "../components/Pages/Landing";
 import Pokedex from "../components/Pages/Pokedex";
@@ -28,9 +28,10 @@ export const AppRouter = () => {
       <Route exact path="/pokedex">
         <Pokedex />
       </Route>
-      <Route path="/">
+      <Route path="/home">
         <Landing />
       </Route>
+      <Redirect to="/home" />
     </Switch>
   );
 };
