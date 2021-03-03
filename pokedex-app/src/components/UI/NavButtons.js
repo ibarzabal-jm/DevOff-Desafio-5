@@ -1,5 +1,5 @@
 import React from "react";
-import { Stack, SimpleGrid, Text, Image } from "@chakra-ui/react";
+import { Stack, Text, Image } from "@chakra-ui/react";
 import { Link as ReachLink } from "react-router-dom";
 
 const NavButtons = () => {
@@ -25,13 +25,13 @@ const NavButtons = () => {
       route: "/quiz",
     },
     {
-      name: "Types Weaks?",
+      name: "Types Combination",
       bgColor: "poison",
       route: "/combination",
     },
   ];
   return (
-    <SimpleGrid bg="#fff" columns={2} gap={3} paddingX={4}>
+    <>
       {navButtonsArray.map((navButton) => (
         <Stack
           align="center"
@@ -84,7 +84,7 @@ const NavButtons = () => {
           width={20}
         />
       </Stack>
-    </SimpleGrid>
+    </>
   );
 };
 
