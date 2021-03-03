@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Stack, Flex, Text, Badge, Heading } from "@chakra-ui/react";
+import { Stack, Flex, Text, Box, Heading } from "@chakra-ui/react";
 import { getWeaknesses } from "../../api/getWeaknesses";
 
 const ResultsCombination = ({ firstType, secondType }) => {
@@ -49,11 +49,17 @@ const ResultsCombination = ({ firstType, secondType }) => {
           align="center"
           justifyContent="center"
           bg={firstType}
+          border="3px solid black"
           width={20}
           rounded={9999}
           height={20}
         >
-          <Text>{firstType}</Text>
+          <Text
+            color="white"
+            textShadow="0 1px 0 black, 0 0 1px rgb(0 0 0 / 60%), 0 0 2px rgb(0 0 0 / 70%), 0 0 3px rgb(0 0 0 / 80%), 0 0 4px rgb(0 0 0 / 90%)"
+          >
+            {firstType}
+          </Text>
         </Flex>
         {secondType && (
           <>
@@ -63,12 +69,16 @@ const ResultsCombination = ({ firstType, secondType }) => {
             <Flex
               align="center"
               bg={secondType}
+              border="3px solid black"
+              color="white"
               height={20}
               justifyContent="center"
               rounded={9999}
               width={20}
             >
-              <Text>{secondType}</Text>
+              <Text textShadow="0 1px 0 black, 0 0 1px rgb(0 0 0 / 60%), 0 0 2px rgb(0 0 0 / 70%), 0 0 3px rgb(0 0 0 / 80%), 0 0 4px rgb(0 0 0 / 90%)">
+                {secondType}
+              </Text>
             </Flex>
           </>
         )}
@@ -89,22 +99,25 @@ const ResultsCombination = ({ firstType, secondType }) => {
                 </Text>
                 <Flex direction="row" wrap="wrap" justifyContent="center">
                   {combination[value].map((type) => (
-                    <Badge
+                    <Box
                       bg={type}
                       key={type}
+                      border="1px"
                       margin={1}
-                      rounded={999}
+                      rounded={99}
                       textAlign="center"
                       w="100px"
                     >
                       <Text
+                        color="white"
+                        textShadow="0 1px 0 black, 0 0 1px rgb(0 0 0 / 60%), 0 0 2px rgb(0 0 0 / 70%), 0 0 3px rgb(0 0 0 / 80%), 0 0 4px rgb(0 0 0 / 90%)"
                         fontSize="sm"
                         textTransform="capitalize"
                         fontWeight="bold"
                       >
                         {type}
                       </Text>
-                    </Badge>
+                    </Box>
                   ))}
                 </Flex>
               </Stack>
