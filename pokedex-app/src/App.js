@@ -23,7 +23,12 @@ const App = () => {
         overflowY="auto"
         overflowX="hidden"
       >
-        <Grid maxW="680px" w="100%" marginY={{ base: 0, sm: 2, md: 4 }}>
+        <Grid
+          maxW="680px"
+          w="100%"
+          position="relative"
+          marginY={{ base: 0, sm: 2, md: 4 }}
+        >
           <AppRouter />
         </Grid>
       </Grid>
