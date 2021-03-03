@@ -3,7 +3,7 @@ import { Heading, SimpleGrid, Stack } from "@chakra-ui/react";
 import { AddPokemon } from "../SearchPokemon/AddPokemon";
 
 import PokemonThumbnail from "../PokemonThumbnail";
-import GoHomeButton from "../UI/GoHomeButton";
+import ToolBarPages from "../UI/ToolBarPages";
 
 const SearchPokemons = () => {
   const [pokemons, setPokemons] = useState([]);
@@ -12,12 +12,11 @@ const SearchPokemons = () => {
     <Stack
       alignContent="center"
       bg="white"
-      margin={{ base: 0, sm: 1, md: 4 }}
       padding={{ base: 0, md: 4 }}
       rounded={30}
       spacing={3}
     >
-      <GoHomeButton componentPathName={"/search"} />
+      <ToolBarPages />
 
       <Heading textAlign="center" mt={4}>
         What Pokémon are you looking for?
@@ -36,6 +35,10 @@ const SearchPokemons = () => {
           ))}
         </SimpleGrid>
       )}
+      <Stack
+        flexGrow={1}
+        background="url(../assets/ui/pokeballgray.svg) no-repeat center"
+      ></Stack>
     </Stack>
   );
 };
