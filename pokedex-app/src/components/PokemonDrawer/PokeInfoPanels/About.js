@@ -16,8 +16,8 @@ const About = ({
   const female = (gender * 100) / 8;
 
   return (
-    <Stack spacing={3}>
-      <Box as="table" width="100%">
+    <Stack spacing={3} width="100%">
+      <Box as="table">
         <tbody>
           <tr>
             <Text
@@ -29,7 +29,7 @@ const About = ({
             >
               Species
             </Text>
-            <Text as="td" paddingY={1} width="60%" fontWeight="bold">
+            <Text as="td" paddingY={1} width="50%" fontWeight="bold">
               {genera}
             </Text>
           </tr>
@@ -101,13 +101,13 @@ const About = ({
               {gen}
             </Text>
           </tr>
-        </tbody>
-      </Box>
-      <Heading size="md" textAlign="start">
-        Breeding
-      </Heading>
-      <Box as="table">
-        <tbody>
+
+          <tr>
+            <Heading size="md" mt={4} textAlign="start">
+              Breeding
+            </Heading>
+          </tr>
+
           <tr>
             <Text
               as="td"
