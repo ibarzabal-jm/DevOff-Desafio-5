@@ -19,22 +19,16 @@ import Moves from "./PokeInfoPanels/Moves";
 const PokeInfo = ({ pokemon: { types, id } }) => {
   const { data, loading } = useFetchPokeInfo(id);
 
+  const tabList = ["About", "Base Stats", "Description", "Moves"];
+
   return (
     <Tabs variant="unstyled" align="center">
       <TabList>
-        <Tab _selected={{ color: types[0], borderBottom: "2px solid" }}>
-          About
-        </Tab>
-        <Tab _selected={{ color: types[0], borderBottom: "2px solid" }}>
-          Base Stats
-        </Tab>
-        <Tab _selected={{ color: types[0], borderBottom: "2px solid" }}>
-          Description
-        </Tab>
-
-        <Tab _selected={{ color: types[0], borderBottom: "2px solid" }}>
-          Moves
-        </Tab>
+        {tabList.map((tabName) => (
+          <Tab _selected={{ color: types[0], borderBottom: "2px solid" }}>
+            {tabName}
+          </Tab>
+        ))}
       </TabList>
       {loading ? (
         <Spinner
@@ -70,7 +64,7 @@ const PokeInfo = ({ pokemon: { types, id } }) => {
             <Description description={data.description} />
           </TabPanel>
 
-          <TabPanel paddingX={2}>
+          <TabPanel>
             {data.moves.length > 0 ? (
               <Moves moves={data.moves} />
             ) : (
