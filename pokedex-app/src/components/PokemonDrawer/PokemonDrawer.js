@@ -69,8 +69,8 @@ const PokemonDrawer = ({ onClose, pokemon }) => {
             backgroundColor="white"
             borderRadius={24}
             marginTop={-16}
-            padding={6}
             paddingTop={12}
+            paddingX={{ base: 1, sm: 2, md: 6 }}
             zIndex={10}
           >
             <PokeInfo pokemon={pokemon} />
