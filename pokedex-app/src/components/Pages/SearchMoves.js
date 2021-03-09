@@ -18,15 +18,19 @@ const SearchMoves = () => {
       <ToolBarPages />
       <Heading textAlign="center">What move are you looking for?</Heading>
       <AddMoves setMoves={setMoves} />
-      <SimpleGrid columns={{ base: 1, md: 2 }} gap={3}>
+      <SimpleGrid
+        background="url(../assets/ui/pokeballgray.svg) no-repeat"
+        backgroundPosition="bottom right"
+        backgroundSize={150}
+        columns={{ base: 1, md: 2 }}
+        padding={2}
+        gap={3}
+        height="100%"
+      >
         {moves.map((move, index) => (
           <MoveCard move={move} key={index} />
         ))}
       </SimpleGrid>
-      <Stack
-        flexGrow={1}
-        background="url(../assets/ui/pokeballgray.svg) no-repeat center"
-      ></Stack>
     </Stack>
   );
 };
