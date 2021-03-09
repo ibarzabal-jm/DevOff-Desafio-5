@@ -91,19 +91,13 @@ const About = ({
             >
               first appearance
             </Text>
-            <Text
-              as="td"
-              paddingY={1}
-              width="60%"
-              fontWeight="bold"
-              textTransform="capitalize"
-            >
-              {gen}
+            <Text as="td" paddingY={1} width="60%" fontWeight="bold">
+              Generation {gen.substring(gen.lastIndexOf("-") + 1).toUpperCase()}
             </Text>
           </tr>
 
           <tr>
-            <Heading size="md" mt={4} textAlign="start">
+            <Heading as="td" size="md" mt={4} textAlign="start">
               Breeding
             </Heading>
           </tr>
