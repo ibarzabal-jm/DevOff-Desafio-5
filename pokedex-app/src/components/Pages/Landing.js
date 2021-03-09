@@ -9,7 +9,7 @@ const Landing = () => {
     <Stack alignItems="stretch" bg="#fff" rounded={30}>
       <SearchPokemons />
       <SimpleGrid bg="#fff" columns={2} gap={3} paddingX={4}>
-        <NavButtons />
+        <NavButtons functionOnClick={null} />
       </SimpleGrid>
       <Pokedex />
     </Stack>
