@@ -25,7 +25,11 @@ const PokeInfo = ({ pokemon: { types, id } }) => {
     <Tabs variant="unstyled" align="center">
       <TabList>
         {tabList.map((tabName) => (
-          <Tab _selected={{ color: types[0], borderBottom: "2px solid" }}>
+          <Tab
+            outline="none"
+            key={tabName}
+            _selected={{ color: types[0], borderBottom: "2px solid" }}
+          >
             {tabName}
           </Tab>
         ))}
@@ -64,7 +68,7 @@ const PokeInfo = ({ pokemon: { types, id } }) => {
             <Description description={data.description} />
           </TabPanel>
 
-          <TabPanel>
+          <TabPanel paddingX={0}>
             {data.moves.length > 0 ? (
               <Moves moves={data.moves} />
             ) : (
