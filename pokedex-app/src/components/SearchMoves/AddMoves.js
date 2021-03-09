@@ -4,6 +4,7 @@ import {
   InputGroup,
   InputLeftElement,
   Spinner,
+  Stack,
   Text,
 } from "@chakra-ui/react";
 import { SearchIcon } from "@chakra-ui/icons";
@@ -40,7 +41,7 @@ const AddMoves = ({ setMoves }) => {
   };
 
   return (
-    <>
+    <Stack>
       <form onSubmit={handleSubmit}>
         <InputGroup variant="filled">
           <InputLeftElement
@@ -68,7 +69,7 @@ const AddMoves = ({ setMoves }) => {
           size="xl"
         />
       )}
-    </>
+    </Stack>
   );
 };
 
