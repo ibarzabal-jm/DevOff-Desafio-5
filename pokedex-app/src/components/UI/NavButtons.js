@@ -1,8 +1,8 @@
 import React from "react";
 import { Stack, Text, Image } from "@chakra-ui/react";
-import { Link as ReachLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 
-const NavButtons = () => {
+const NavButtons = ({ functionOnClick }) => {
   const navButtonsArray = [
     {
       name: "Pokédex",
@@ -35,7 +35,7 @@ const NavButtons = () => {
       {navButtonsArray.map((navButton) => (
         <Stack
           align="center"
-          as={ReachLink}
+          as={Link}
           bg={navButton.bgColor}
           borderRadius={20}
           boxShadow="0px 5px  3px #ccc"
@@ -47,6 +47,7 @@ const NavButtons = () => {
           padding={3}
           _hover={{ opacity: 0.8 }}
           to={navButton.route}
+          onClick={functionOnClick !== null ? functionOnClick : undefined}
         >
           <Text color="white">{navButton.name}</Text>
           <Image
