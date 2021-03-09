@@ -21,6 +21,7 @@ const MoveCard = ({ move }) => {
       padding={3}
       spacing={6}
       marginBottom={{ base: 4, md: 0 }}
+      maxHeight="350px"
     >
       <Stack isInline justify="space-between" alignItems="center">
         <Heading color="white" textTransform="capitalize" fontSize="xl">
