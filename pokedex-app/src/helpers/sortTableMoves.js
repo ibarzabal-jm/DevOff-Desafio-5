@@ -7,7 +7,7 @@ export const sortTableAscending = (moves, sort) => {
       );
 
     case "power":
-      return movesRef.sort((a, b) => b.power - a.power);
+      return movesRef.sort((a, b) => a.power - b.power);
 
     case "type":
       return movesRef.sort((a, b) =>
@@ -19,7 +19,7 @@ export const sortTableAscending = (moves, sort) => {
       );
 
     case "accuracy":
-      return movesRef.sort((a, b) => b.accuracy - a.accuracy);
+      return movesRef.sort((a, b) => a.accuracy - b.accuracy);
 
     default:
       return movesRef;
@@ -35,7 +35,7 @@ export const sortTableDescending = (moves, sort) => {
       );
 
     case "power":
-      return movesRef.sort((a, b) => a.power - b.power);
+      return movesRef.sort((a, b) => b.power - a.power);
 
     case "type":
       return movesRef.sort((a, b) =>
@@ -47,7 +47,7 @@ export const sortTableDescending = (moves, sort) => {
       );
 
     case "accuracy":
-      return movesRef.sort((a, b) => a.accuracy - b.accuracy);
+      return movesRef.sort((a, b) => b.accuracy - a.accuracy);
 
     default:
       return movesRef;
