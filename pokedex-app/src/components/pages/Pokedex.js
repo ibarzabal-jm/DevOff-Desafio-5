@@ -79,9 +79,7 @@ const Pokedex = () => {
           <Button
             bg="primary"
             color="white"
-            _hover={{
-              bg: "primary",
-            }}
+            _hover={{ bgGradient: "linear-gradient(to-r, crimson, crimson)" }}
             onClick={() => setPage(page - 1)}
           >
             Prev Page
@@ -95,7 +93,7 @@ const Pokedex = () => {
             onClick={() => setPage(page)}
             bg="secondary"
             color="white"
-            _hover={{ bg: "primary" }}
+            _hover={{ bgGradient: "linear-gradient(to-r, crimson, crimson)" }}
           >
             {name}
           </Button>
@@ -104,9 +102,7 @@ const Pokedex = () => {
           <Button
             bg="primary"
             color="white"
-            _hover={{
-              bg: "primary",
-            }}
+            _hover={{ bgGradient: "linear-gradient(to-r, crimson, crimson)" }}
             onClick={() => setPage(page + 1)}
           >
             Next Page
