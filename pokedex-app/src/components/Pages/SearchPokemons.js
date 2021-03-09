@@ -22,23 +22,26 @@ const SearchPokemons = () => {
         What Pokémon are you looking for?
       </Heading>
       <AddPokemon setPokemons={setPokemons} />
-      {pokemons.length > 0 && (
-        <SimpleGrid
-          columns={2}
-          gap={2}
-          bg="gray.200"
-          borderRadius={20}
-          padding={2}
-        >
-          {pokemons.map((pokemon, id) => (
-            <PokemonThumbnail key={id} pokemon={pokemon} />
-          ))}
-        </SimpleGrid>
-      )}
       <Stack
-        flexGrow={1}
         background="url(../assets/ui/pokeballgray.svg) no-repeat center"
-      ></Stack>
+        backgroundPosition="bottom right"
+        backgroundSize={150}
+        flexGrow={1}
+      >
+        {pokemons.length > 0 && (
+          <SimpleGrid
+            columns={2}
+            gap={2}
+            bg="gray.200"
+            borderRadius={20}
+            padding={2}
+          >
+            {pokemons.map((pokemon, id) => (
+              <PokemonThumbnail key={id} pokemon={pokemon} />
+            ))}
+          </SimpleGrid>
+        )}
+      </Stack>
     </Stack>
   );
 };
