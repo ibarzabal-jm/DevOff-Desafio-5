@@ -63,13 +63,7 @@ const getSpeciesData = async (url) => {
     gen: generation.name,
     gender,
     genera: genera.find((genus) => genus.language.name === "en").genus,
-    description: description.filter(
-      (desc) =>
-        (desc.language.name === "en" && desc.version.name === "heartgold") ||
-        (desc.language.name === "en" && desc.version.name === "emerald") ||
-        (desc.language.name === "en" && desc.version.name === "firered") ||
-        (desc.language.name === "en" && desc.version.name === "sword")
-    ),
+    description: description.filter((desc) => desc.language.name === "en"),
     hatch,
   };
 };
