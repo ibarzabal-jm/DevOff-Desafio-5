@@ -34,7 +34,7 @@ const DrawerNav = ({ onClose }) => {
             h="100%"
             spacing={{ base: 4, md: 10 }}
           >
-            <NavButtons />
+            <NavButtons functionOnClick={onClose} />
           </Stack>
           <Stack
             align="center"
