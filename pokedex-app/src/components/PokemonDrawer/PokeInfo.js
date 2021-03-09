@@ -26,7 +26,6 @@ const PokeInfo = ({ pokemon: { types, id } }) => {
       <TabList>
         {tabList.map((tabName) => (
           <Tab
-            outline="none"
             key={tabName}
             _selected={{ color: types[0], borderBottom: "2px solid" }}
           >

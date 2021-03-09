@@ -5,7 +5,7 @@ import { AddPokemon } from "../SearchPokemon/AddPokemon";
 import PokemonThumbnail from "../PokemonThumbnail";
 import ToolBarPages from "../UI/ToolBarPages";
 
-const SearchPokemons = () => {
+const SearchPokemons = ({ limit = 100 }) => {
   const [pokemons, setPokemons] = useState([]);
 
   return (
@@ -36,7 +36,7 @@ const SearchPokemons = () => {
             borderRadius={20}
             padding={2}
           >
-            {pokemons.map((pokemon, id) => (
+            {pokemons.slice(0, limit).map((pokemon, id) => (
               <PokemonThumbnail key={id} pokemon={pokemon} />
             ))}
           </SimpleGrid>
