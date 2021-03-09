@@ -18,8 +18,8 @@ const Description = ({ description }) => {
               >
                 {genDesc.version.name}
               </Text>
-              <Text as="td" paddingY={4} align="justify">
-                {genDesc.flavor_text}
+              <Text as="td" paddingY={4}>
+                {genDesc.flavor_text.replace(/\s+/g, " ")}
               </Text>
             </Tr>
           ))}
