@@ -38,10 +38,12 @@ const PokemonThumbnail = ({ pokemon }) => {
           ))}
         </Stack>
         <Image
-          maxWidth="100px"
-          width={20}
           alt={pokemon.name}
+          height={20}
+          maxHeight="80px"
+          maxWidth="80px"
           src={pokemon.image}
+          width={20}
         ></Image>
       </Stack>
       {drawer && (
