@@ -3,20 +3,23 @@ import { dataTypeWeaknesses as data } from "../data/dataTypeWeaknesses";
 export const getWeaknesses = (types) => {
   let weaknesses = {};
 
+
   if (types.length === 1) {
     weaknesses = data[types];
   } else {
-    weaknesses = types.reduce((combination, type) => {
-      for (const [typeName, number] of Object.entries(data[type])) {
-        if (!combination[typeName]) {
-          combination[typeName] = 1;
-        }
-        combination[typeName] *= number;
-      }
 
-      return combination;
-    }, {});
+    const weaks1 = data[types[0]]
+    const weaks2 = data[types[1]]
+
+
+    weaknesses = Object.keys(weaks1)
+                .reduce((combination, type) => {
+                  
+                  combination[type] = weaks1[type] * weaks2[type];
+                  return combination;
+                }, {});
   }
+
 
   //  Recibo
   // weaknesses = {
