@@ -1,7 +1,7 @@
 export const getMoveByName = async (moveName) => {
-  const moveURL = `https://pokeapi.co/api/v2/move/${moveName}/`;
+  const moveURL = `https://pokeapi.co/api/v2/move/${moveName}`;
 
-  const resp = await fetch(moveURL);
+  const resp = await fetch(moveURL).catch(err =>console.log(err));
 
   const {
     accuracy,
